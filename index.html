@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanalakshmi Srinivasan University - Premier Engineering Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background: #d62229;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: left;
+        }
+        
+        .logo img {
+            height: 150px;
+            margin-right: 100px;
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a237e;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 5px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #1a237e;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: #1a237e;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-buttons .btn {
+            padding: 8px 20px;
+            margin-left: 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-login {
+            background: white;
+            color: #1a237e;
+            border: 1px solid #1a237e;
+        }
+        
+        .btn-login:hover {
+            background: #f5f5f5;
+        }
+        
+        .btn-apply {
+            background: #1a237e;
+            color: white;
+        }
+        
+        .btn-apply:hover {
+            background: #283593;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.8), rgba(26, 35, 126, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 5%;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .hero-btn {
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .hero-btn {
+            background: #ffb300;
+            color: #333;
+        }
+        
+        .hero-btn:hover {
+            background: #ffa000;
+        }
+        
+        
+
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
+        
+        .stats h2 {
+            color: #1a237e;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* Programs Section */
+        .programs {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            color: #1a237e;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .program-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .program-card:hover .program-img img {
+            transform: scale(1.05);
+        }
+        
+        .program-content {
+            padding: 25px;
+        }
+        
+        .program-content h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        
+        .program-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .program-link {
+            display: inline-block;
+            color: #1a237e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .program-link:hover {
+            color: #283593;
+        }
+        
+        /* Photo Gallery Slider Section */
+        .gallery-section {
+            padding: 80px 5%;
+            background: white;
+            text-align: center;
+        }
+        
+        .slider-container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            margin: 40px auto;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 500px;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .slide-content h3 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .slide-content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+        
+        .slider-info {
+            text-align: center;
+            color: #1a237e;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        /* Engineering Clubs Section (Integrated from Code 1) */
+        .clubs-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .clubs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .clubs-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .clubs-header h2 {
+            color: #1a237e;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .schools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .school-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+        
+        .school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .school-header {
+            background: linear-gradient(to right, #3949ab, #303f9f);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .school-content {
+            padding: 20px;
+        }
+        
+        .clubs-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .club-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #3949ab;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .club-item:hover {
+            background: #e8eaf6;
+            transform: translateX(5px);
+        }
+        
+        .club-details {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .club-details.active {
+            display: block;
+        }
+        
+        .club-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        .close-btn {
+            background: #ff5252;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .close-btn:hover {
+            background: #ff0000;
+        }
+        
+        .club-info {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        
+        .club-image {
+            background: #f5f5f5;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 1.2rem;
+        }
+        
+        .club-description h3 {
+            color: #3949ab;
+            margin-bottom: 15px;
+        }
+        
+        .activities-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .activities-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .activities-list li:before {
+            content: "•";
+            color: #3949ab;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 10px;
+        }
+        
+        /* Anti-Ragging Committee Section */
+        .anti-ragging {
+            background: white;
+            padding: 60px 5%;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .anti-ragging h2 {
+            color: #1a237e;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .committee-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .committee-image {
+            background: #f5f5f5;
+            border-radius: 8px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 1.2rem;
+        }
+        
+        .committee-info h3 {
+            color: #3949ab;
+            margin-bottom: 15px;
+        }
+        
+        /* News Section */
+        .news {
+            padding: 80px 5%;
+            background: #f8f9fa;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .news-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            background: white;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .news-content h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        
+        .news-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #ffb300;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stats-grid,
+            .programs-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .slider {
+                height: 400px;
+            }
+            
+            .slide-content h3 {
+                font-size: 20px;
+            }
+            
+            .slide-content p {
+                font-size: 14px;
+            }
+            
+            .club-info,
+            .committee-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .schools-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slider {
+                height: 300px;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .slide-content {
+                padding: 10px;
+            }
+            
+            .slide-content h3 {
+                font-size: 18px;
+            }
+            
+            .slide-content p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Applications for 2025 academic year are now open! <a href="apply.html" style="color: white; text-decoration: underline;">Apply now</a></p>
+    </div>
+    
+    <!-- Header and Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dyda80tvb/image/upload/v1755563620/dsu.png_jc4mbj.png" alt="Institute Logo">
+                <div class="logo-text">Dhanalakshmi Srinivasan University</div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="departments.html">DEPARTMENTS</a></li>
+                    <li><a href="faculy gallery.html">Faculty</a></li>
+                    <li><a href="committe.html">COMMITTE</a></li>
+                    <li><a href="fees.html">FEE STRUCTURE</a></li>
+                    <li><a href="library details.html">LIBRARY DETAILS</a></li>
+                    <li><a href="set block.html">SET BLOCK 3D VISUALISATION</a></li>
+                    <li><a href="videos.html">CULTURALS</a></li>
+                    <li><a href="academic.html">ACADEMIC CALENDAR</a></li>
+                    <li><a href="naac.html">NAAC</a></li>
+                    <li><a href="events.html">EVENTS</a></li>
+                    <li><a href="map.html">LOCATION</a></li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="nav-buttons">
+                <a href="apply.html" class="btn btn-apply">Apply Now</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>School of Engineering and Technology</h1>
+            <p>Join one of India's premier university for technology education and research. Shape your future with world-class facilities, renowned faculty, and endless opportunities.</p>
+            <div class="hero-button">
+                <a href="video.html" class="hero-btn hero-btn">Video Tour of DSU-SET</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <h2>DSU-SET by Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">4,500+</div>
+                <div class="stat-label">Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">183+</div>
+                <div class="stat-label">Faculty Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Programs Offered</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Placement Rate</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Photo Gallery Slider Section -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <h2>Campus Gallery</h2>
+            <p>Explore our state-of-the-art facilities and vibrant campus life through our photo gallery.</p>
+        </div>
+        
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="https://res.cloudinary.com/drz22hsjz/image/upload/v1756020187/g2_tecfid.jpg" alt="Mountain Landscape">
+                    <div class="slide-content">
+                        <h3>DSU</h3>
+                        <p>DSU is a place where students can explore their passions and achieve their academic goals.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://res.cloudinary.com/dyda80tvb/image/upload/v1756011193/library2_r1kqwr.jpg" alt="mystic fall">
+                    <div class="slide-content">
+                        <h3>Library</h3>
+                        <p>A curated collection of resources providing access to knowledge, ideas, and inspiration for all.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://res.cloudinary.com/dyda80tvb/image/upload/v1756010222/sch-of-engg-dept-06_grayt8.jpg" alt="Waterfall">
+                    <div class="slide-content">
+                        <h3>Researchers</h3>
+                        <p>A researcher is an individual who conducts systematic investigation to establish facts or principles.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://res.cloudinary.com/dyda80tvb/image/upload/v1755711672/bu_lrakh8.jpg" alt="Desert Landscape">
+                    <div class="slide-content">
+                        <h3>SET</h3>
+                        <p>School of Engineering and Technology, a hub for innovation and learning.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://res.cloudinary.com/dyda80tvb/image/upload/v1756010223/Research_new_01_a2h4zi.jpg " alt="Aurora Borealis">
+                    <div class="slide-content">
+                        <h3>Students</h3>
+                        <p>Students at DSU are encouraged to engage in research and innovation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn prev-btn">&#10094;</button>
+                <button class="nav-btn next-btn">&#10095;</button>
+            </div>
+            
+            <div class="dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            
+            <div class="slider-info">
+                Slide <span id="current-slide">1</span> of 5
+            </div>
+        </div>
+    </section>
+    
+    <!-- Engineering Clubs Section (Integrated from Code 1) -->
+    <section class="clubs-section">
+        <div class="clubs-container">
+            <div class="clubs-header">
+                <h2>Engineering Departments & Clubs</h2>
+                <p>Click on a club to see more details</p>
+            </div>
+            
+            <div class="schools-container">
+                <!-- Computer Science & Engineering -->
+                <div class="school-card">
+                    <div class="school-header">
+                        <h3>Computer Science & Engineering</h3>
+                    </div>
+                    <div class="school-content">
+                        <p>Clubs related to computing, programming, and digital innovation.</p>
+                        <ul class="clubs-list">
+                            <li class="club-item" data-club="codehub">CodeHub - Programming Club</li>
+                            <li class="club-item" data-club="ai-club">AI & Machine Learning Club</li>
+                            <li class="club-item" data-club="cyber-club">Cyber Security Club</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Electronics & Communication -->
+                <div class="school-card">
+                    <div class="school-header">
+                        <h3>Electronics & Communication</h3>
+                    </div>
+                    <div class="school-content">
+                        <p>Clubs focused on electronics, robotics, and communication technologies.</p>
+                        <ul class="clubs-list">
+                            <li class="club-item" data-club="robotics">Robotics Club</li>
+                            <li class="club-item" data-club="iot-club">IoT Innovators Club</li>
+                            <li class="club-item" data-club="circuit-club">Circuit Design Club</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Mechanical Engineering -->
+                <div class="school-card">
+                    <div class="school-header">
+                        <h3>Mechanical Engineering</h3>
+                    </div>
+                    <div class="school-content">
+                        <p>Clubs for mechanical design, automotive, and energy systems.</p>
+                        <ul class="clubs-list">
+                            <li class="club-item" data-club="automotive">Automotive Club</li>
+                            <li class="club-item" data-club="cad-club">CAD Design Club</li>
+                            <li class="club-item" data-club="energy-club">Energy Club</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Club Details -->
+            <div class="club-details" id="codehub">
+                <div class="club-header">
+                    <h3>CodeHub - Programming Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-code" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>CodeHub is the premier programming club for students passionate about coding, software development, and technology. We host regular workshops, hackathons, and coding competitions.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>Weekly coding challenges</li>
+                            <li>Hackathons and coding competitions</li>
+                            <li>Guest lectures from industry professionals</li>
+                            <li>Open source project collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="ai-club">
+                <div class="club-header">
+                    <h3>AI & Machine Learning Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-robot" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The AI & Machine Learning Club explores the fascinating world of artificial intelligence, machine learning, and data science through hands-on projects and research.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>ML workshop series</li>
+                            <li>Data science competitions</li>
+                            <li>Research paper discussions</li>
+                            <li>AI project development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="cyber-club">
+                <div class="club-header">
+                    <h3>Cyber Security Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-shield-alt" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The Cyber Security Club is dedicated to learning about and practicing cybersecurity techniques, ethical hacking, and information security best practices.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>Capture the flag competitions</li>
+                            <li>Security workshops</li>
+                            <li>Guest speakers from the cybersecurity industry</li>
+                            <li>Security audit practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="robotics">
+                <div class="club-header">
+                    <h3>Robotics Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-cogs" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The Robotics Club brings together students interested in robotics, automation, and mechatronics to build innovative projects and compete in robotics competitions.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>Robotics workshops</li>
+                            <li>Project building sessions</li>
+                            <li>Competition preparation</li>
+                            <li>Industry visits</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="iot-club">
+                <div class="club-header">
+                    <h3>IoT Innovators Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-wifi" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The IoT Innovators Club explores the Internet of Things ecosystem, from sensors and devices to cloud connectivity and data analysis.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>IoT project development</li>
+                            <li>Sensor and device workshops</li>
+                            <li>Cloud integration sessions</li>
+                            <li>Smart city projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="circuit-club">
+                <div class="club-header">
+                    <h3>Circuit Design Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-bolt" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The Circuit Design Club is for students interested in electronics circuit design, PCB fabrication, and embedded systems development.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>Circuit design workshops</li>
+                            <li>PCB design and fabrication</li>
+                            <li>Embedded programming</li>
+                            <li>Electronics projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="automotive">
+                <div class="club-header">
+                    <h3>Automotive Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-car" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The Automotive Club brings together students passionate about vehicle design, automotive systems, and transportation technology.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>Vehicle design projects</li>
+                            <li>Engine workshops</li>
+                            <li>Auto show visits</li>
+                            <li>SAE competition preparation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="cad-club">
+                <div class="club-header">
+                    <h3>CAD Design Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-cube" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The CAD Design Club focuses on computer-aided design techniques for mechanical components, structures, and systems using industry-standard software.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>CAD software training</li>
+                            <li>Design challenges</li>
+                            <li>3D printing projects</li>
+                            <li>Industry design standards workshops</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="club-details" id="energy-club">
+                <div class="club-header">
+                    <h3>Energy Club</h3>
+                    <div class="close-btn">&times;</div>
+                </div>
+                <div class="club-info">
+                    <div class="club-image">
+                        <i class="fas fa-charging-station" style="font-size: 48px; color: #3949ab;"></i>
+                    </div>
+                    <div class="club-description">
+                        <h3>About</h3>
+                        <p>The Energy Club explores renewable energy, energy efficiency, and sustainable power systems through projects, research, and industry engagement.</p>
+                        <h3>Activities</h3>
+                        <ul class="activities-list">
+                            <li>Renewable energy projects</li>
+                            <li>Energy efficiency audits</li>
+                            <li>Guest lectures from energy professionals</li>
+                            <li>Field trips to power plants</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <h2> <b>Dhanalakshmi Srinivasan University Rules & Regulations </b></h2>
+    <section class="rules>
+    <div id="anti-ragging">
+      <h3>Anti-Ragging Policy</h3>
+      <p>As per DSU's Anti-Ragging Policy (aligned with UGC guidelines):</p>
+      <ul>
+        <li>Ragging—including teasing, practical jokes, or actions causing physical/psychological harm—is strictly prohibited.</li>
+        <li>Violators may face legal action: imprisonment up to 2 years and/or fine up to ₹10,000.</li>
+        <li>Convicted students will be dismissed and barred from future admission at any institution.</li>
+        <li>Complaints are investigated immediately; deans have authority to impose punishments like suspension, expulsion, or fines.</li>
+        <li>Awareness programs, orientation sessions, student pledges, helplines, and counseling support are part of the preventive framework.</li>
+      </ul>
+    </div>
+
+    <div id="exam-conduct">
+      <h3>Examination Rules</h3>
+      <ul>
+        <li>First 30 minutes: Absentees marked; late arrivals beyond 30 min not allowed entry; no extra time given.</li>
+        <li>No candidate may leave the hall during the first and last 30 minutes.</li>
+        <li>Invigilators must verify that answer booklets include the registration number and other required details; blank pages must be crossed.</li>
+        <li>No communication, mobile phones, or electronic gadgets allowed. Misconduct leads to severe penalties (e.g., cancellation, expulsion).</li>
+        <li>Students must arrive at least half an hour before the exam; no extra time for latecomers.</li>
+      </ul>
+    </div>
+
+    <div id="hostel">
+      <h3>Hostel Regulations</h3>
+      <ul>
+        <li>Outings require prior permission (out-pass); students must sign out and sign in.</li>
+        <li>Damage to property results in fines and disciplinary action; cleanliness and proper upkeep are mandatory.</li>
+        <li>Guests are not allowed in student rooms. Misuse of computers or phones can lead to expulsion from hostel.</li>
+        <li>Post-removal from college, hostel membership ceases automatically.</li>
+        <li>Prohibited: Posters on walls, keeping large amounts of cash or valuables in rooms, and vehicles in hostel premises.</li>
+        <li>Lights and fans must be switched off when not in use; roll calls and mess-time alerts are enforced.</li>
+      </ul>
+    </div>
+
+    <div id="icc">
+      <h3>Internal Complaints Committee (ICC)</h3>
+      <ul>
+        <li>Established as per UGC (Prevention of Sexual Harassment) regulations to ensure a safe campus.</li>
+        <li>Comprises faculty, staff, students, and an NGO representative.</li>
+        <li>Punishments for students found guilty may include suspension, expulsion, withholding privileges, or community service.</li>
+        <li>Compensation may be directed to victims based on trauma, medical expenses, and career loss.</li>
+        <li>False or malicious complaints also carry consequences after proper inquiry.</li>
+      </ul>
+    </div>
+        
+    </section>  
+    </div> 
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Institute of Technology</h3>
+                <p>Premier institute for engineering education and research established with a vision to create globally competent professionals.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/16vAdhPrMU/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/DSUTRY_OFFICIAL"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/dsu_trichy?utm_source=ig_web_button_share_sheet&igsh=MnBmeWRnOWU2djA4"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/dhanalakshmisrinivasanuniversity"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com/@dsu-trichy-campus?si=qhUEQcJs4WRH2YkO"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            
+            
+            <div class="footer-column">
+                <h3>Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Undergraduate Programs</a></li>
+                    <li><a href="#">Graduate Programs</a></li>
+                    <li><a href="#">Doctoral Programs</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-map-marker-alt"></i>NH-45,Trichy Chennai Trunk Road,samayapuram(near samayapuram toll plaza),Tiruchiralappalli-621112,Tamilnadu,India. </p>
+                <p><i class="fas fa-phone"></i> +91 6384176766|+91 6384176769</p>
+                <p><i class="fas fa-envelope"></i> enquiry@dsuniversity.ac.in</p>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Dhanalakshmi Srinivasan University. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Photo Gallery Slider JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dots = document.querySelectorAll('.dot');
+            const currentSlideIndicator = document.getElementById('current-slide');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Function to update slider position
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+                
+                // Update current slide indicator
+                currentSlideIndicator.textContent = currentSlide + 1;
+            }
+            
+            // Next slide function
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            }
+            
+            // Set up event listeners for buttons
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Set up event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+            
+            // Auto-advance slides every 5 seconds
+            setInterval(nextSlide, 5000);
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            
+            // Engineering Clubs JavaScript
+            const clubItems = document.querySelectorAll('.club-item');
+            const clubDetails = document.querySelectorAll('.club-details');
+            const closeBtns = document.querySelectorAll('.close-btn');
+            
+            clubItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const clubId = item.getAttribute('data-club');
+                    clubDetails.forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    document.getElementById(clubId).classList.add('active');
+                    document.getElementById(clubId).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    clubDetails.forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
