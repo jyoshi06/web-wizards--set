@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS University - Engineering Fee Structure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .logo i {
+            font-size: 40px;
+            color: #283593;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .info-bar {
+            background: #5c6bc0;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .academic-year {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .currency {
+            background: #3949ab;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .department-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .department-header {
+            background: linear-gradient(to right, #3949ab, #303f9f);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .department-content {
+            padding: 20px;
+        }
+        
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .fee-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            color: #1a237e;
+            font-size: 1.1rem;
+        }
+        
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .fee-table th {
+            background: #1a237e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .fee-table tr:nth-child(even) {
+            background: #f5f7fa;
+        }
+        
+        .fee-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .fee-table tr:last-child td {
+            border-bottom: none;
+            font-weight: bold;
+            background: #e8eaf6;
+        }
+        
+        .comparison {
+            margin: 40px 0;
+        }
+        
+        .comparison h2 {
+            color: #1a237e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .notes {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 30px 0;
+        }
+        
+        .notes h3 {
+            color: #ff6f00;
+            margin-bottom: 10px;
+        }
+        
+        .notes ul {
+            list-style-position: inside;
+            padding-left: 10px;
+        }
+        
+        .notes li {
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: #1a237e;
+            color: white;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .departments {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .fee-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1>Dhanalakshmi Srinivasan University</h1>
+                    <p class="subtitle">Trichy - School of Engineering and Technology</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Fee Structure for Academic Year 2023-2024</h2>
+        
+        <div class="info-bar">
+            <div class="academic-year">Academic Year: 2023-2024</div>
+            <div class="currency">All fees in Indian Rupees (₹)</div>
+        </div>
+        
+        <div class="departments">
+            <!-- Computer Science & Engineering -->
+            <div class="department-card">
+                <div class="department-header">
+                    <h3>Computer Science & Engineering</h3>
+                </div>
+                <div class="department-content">
+                    <div class="fee-item">
+                        <span>Tuition Fee</span>
+                        <span>₹95,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Development Fee</span>
+                        <span>₹15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Exam Fee</span>
+                        <span>₹8,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Other Fees</span>
+                        <span>₹12,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Total per year</span>
+                        <span>₹1,30,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Electronics & Communication -->
+            <div class="department-card">
+                <div class="department-header">
+                    <h3>Electronics & Communication</h3>
+                </div>
+                <div class="department-content">
+                    <div class="fee-item">
+                        <span>Tuition Fee</span>
+                        <span>₹90,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Development Fee</span>
+                        <span>₹15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Exam Fee</span>
+                        <span>₹8,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Other Fees</span>
+                        <span>₹12,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Total per year</span>
+                        <span>₹1,25,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mechanical Engineering -->
+            <div class="department-card">
+                <div class="department-header">
+                    <h3>Mechanical Engineering</h3>
+                </div>
+                <div class="department-content">
+                    <div class="fee-item">
+                        <span>Tuition Fee</span>
+                        <span>₹85,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Development Fee</span>
+                        <span>₹15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Exam Fee</span>
+                        <span>₹8,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Other Fees</span>
+                        <span>₹12,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Total per year</span>
+                        <span>₹1,20,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Civil Engineering -->
+            <div class="department-card">
+                <div class="department-header">
+                    <h3>Civil Engineering</h3>
+                </div>
+                <div class="department-content">
+                    <div class="fee-item">
+                        <span>Tuition Fee</span>
+                        <span>₹80,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Development Fee</span>
+                        <span>₹15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Exam Fee</span>
+                        <span>₹8,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Other Fees</span>
+                        <span>₹12,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Total per year</span>
+                        <span>₹1,15,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Electrical & Electronics -->
+            <div class="department-card">
+                <div class="department-header">
+                    <h3>Electrical & Electronics</h3>
+                </div>
+                <div class="department-content">
+                    <div class="fee-item">
+                        <span>Tuition Fee</span>
+                        <span>₹85,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Development Fee</span>
+                        <span>₹15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Exam Fee</span>
+                        <span>₹8,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Other Fees</span>
+                        <span>₹12,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Total per year</span>
+                        <span>₹1,20,000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI & Data Science -->
+            <div class="department-card">
+                <div class="department-header">
+                    <h3>AI & Data Science</h3>
+                </div>
+                <div class="department-content">
+                    <div class="fee-item">
+                        <span>Tuition Fee</span>
+                        <span>₹1,00,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Development Fee</span>
+                        <span>₹15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Exam Fee</span>
+                        <span>₹8,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Other Fees</span>
+                        <span>₹12,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span>Total per year</span>
+                        <span>₹1,35,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <h2>Detailed Fee Comparison</h2>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Department</th>
+                        <th>Tuition Fee</th>
+                        <th>Development Fee</th>
+                        <th>Exam Fee</th>
+                        <th>Other Fees</th>
+                        <th>Total per year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Computer Science & Engineering</td>
+                        <td>₹95,000</td>
+                        <td>₹15,000</td>
+                        <td>₹8,000</td>
+                        <td>₹12,000</td>
+                        <td>₹1,30,000</td>
+                    </tr>
+                    <tr>
+                        <td>Electronics & Communication</td>
+                        <td>₹90,000</td>
+                        <td>₹15,000</td>
+                        <td>₹8,000</td>
+                        <td>₹12,000</td>
+                        <td>₹1,25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Mechanical Engineering</td>
+                        <td>₹85,000</td>
+                        <td>₹15,000</td>
+                        <td>₹8,000</td>
+                        <td>₹12,000</td>
+                        <td>₹1,20,000</td>
+                    </tr>
+                    <tr>
+                        <td>Civil Engineering</td>
+                        <td>₹80,000</td>
+                        <td>₹15,000</td>
+                        <td>₹8,000</td>
+                        <td>₹12,000</td>
+                        <td>₹1,15,000</td>
+                    </tr>
+                    <tr>
+                        <td>Electrical & Electronics</td>
+                        <td>₹85,000</td>
+                        <td>₹15,000</td>
+                        <td>₹8,000</td>
+                        <td>₹12,000</td>
+                        <td>₹1,20,000</td>
+                    </tr>
+                    <tr>
+                        <td>AI & Data Science</td>
+                        <td>₹1,00,000</td>
+                        <td>₹15,000</td>
+                        <td>₹8,000</td>
+                        <td>₹12,000</td>
+                        <td>₹1,35,000</td>
+                    </tr>

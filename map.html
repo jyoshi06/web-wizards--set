@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSU Trichy Location Finder</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a6fc4, #004d99);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #1a6fc4;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .map-container {
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .info-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #1a6fc4;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .info-detail {
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-detail h3 {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+        
+        .distance-display {
+            background: #eef5ff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .distance-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a6fc4;
+            margin: 1rem 0;
+        }
+        
+        .button {
+            background: #1a6fc4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .button:hover {
+            background: #004d99;
+        }
+        
+        .location-details {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">DSU</div>
+                <h1>DSU Trichy Location Finder</h1>
+            </div>
+            <p class="subtitle">Find the exact location and distance to Dhanalakshmi Srinivasan University, Trichy</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+            
+            <div class="info-container">
+                <h2>University Information</h2>
+                
+                <div class="info-detail">
+                    <h3>Address</h3>
+                    <p>Dhanalakshmi Srinivasan University<br>
+                    Samayapuram, Trichy - 621112<br>
+                    Tamil Nadu, India</p>
+                </div>
+                
+                <div class="info-detail">
+                    <h3>Contact Information</h3>
+                    <p>Phone: +91-431-267 0665<br>
+                    Email: info@dsuniversity.ac.in<br>
+                    Website: www.dsuniversity.ac.in</p>
+                </div>
+                
+                <div class="distance-display">
+                    <h3>Distance from your location</h3>
+                    <div class="distance-value" id="distance-value">-- km</div>
+                    <p>Straight line distance to DSU Trichy</p>
+                    <button class="button" id="locate-btn">Calculate My Distance</button>
+                </div>
+                
+                <div class="location-details">
+                    <h3>Your Location</h3>
+                    <p id="location-details">Waiting for location access...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 DSU Trichy Location Finder | This is a demo application for location and distance calculation</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([10.9415, 78.7019], 13);
+        
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // DSU Trichy location coordinates (approximate)
+        const dsuLocation = [10.9415, 78.7019];
+        
+        // Add marker for DSU Trichy
+        const dsuMarker = L.marker(dsuLocation).addTo(map);
+        dsuMarker.bindPopup("<b>Dhanalakshmi Srinivasan University</b><br>Trichy Campus").openPopup();
+        
+        // Add circle around DSU for better visibility
+        const dsuCircle = L.circle(dsuLocation, {
+            color: '#1a6fc4',
+            fillColor: '#1a6fc4',
+            fillOpacity: 0.2,
+            radius: 500
+        }).addTo(map);
+        
+        // Variables to store user location and marker
+        let userLocation = null;
+        let userMarker = null;
+        let distanceLine = null;
+        
+        // Function to calculate distance between two points (Haversine formula)
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Earth's radius in km
+            const dLat = deg2rad(lat2 - lat1);
+            const dLon = deg2rad(lon2 - lon1);
+            const a = 
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+            const distance = R * c; // Distance in km
+            return distance;
+        }
+        
+        function deg2rad(deg) {
+            return deg * (Math.PI/180);
+        }
+        
+        // Function to handle successful location retrieval
+        function onLocationFound(e) {
+            userLocation = [e.latitude, e.longitude];
+            const radius = e.accuracy / 2;
+            
+            // Remove previous user marker and line if they exist
+            if (userMarker) {
+                map.removeLayer(userMarker);
+            }
+            if (distanceLine) {
+                map.removeLayer(distanceLine);
+            }
+            
+            // Add marker for user's location
+            userMarker = L.marker(userLocation).addTo(map)
+                .bindPopup("You are here").openPopup();
+            
+            // Add circle for accuracy
+            L.circle(userLocation, radius).addTo(map);
+            
+            // Draw line between user and DSU
+            distanceLine = L.polyline([userLocation, dsuLocation], {
+                color: '#1a6fc4',
+                weight: 3,
+                dashArray: '5, 10'
+            }).addTo(map);
+            
+            // Calculate distance
+            const distance = calculateDistance(
+                userLocation[0], userLocation[1],
+                dsuLocation[0], dsuLocation[1]
+            );
+            
+            // Update distance display
+            document.getElementById('distance-value').textContent = 
+                distance.toFixed(1) + ' km';
+            
+            // Update location details
+            document.getElementById('location-details').innerHTML = 
+                `Latitude: ${userLocation[0].toFixed(6)}<br>
+                 Longitude: ${userLocation[1].toFixed(6)}<br>
+                 Accuracy: ${radius.toFixed(0)} meters`;
+            
+            // Adjust map view to show both locations
+            const bounds = L.latLngBounds(userLocation, dsuLocation);
+            map.fitBounds(bounds, { padding: [50, 50] });
+        }
+        
+        // Function to handle location error
+        function onLocationError(e) {
+            alert("Unable to retrieve your location. Please ensure location services are enabled and try again.");
+            console.error(e);
+            document.getElementById('location-details').textContent = 
+                "Error retrieving location: " + e.message;
+        }
+        
+        // Add event listener to the button
+        document.getElementById('locate-btn').addEventListener('click', function() {
+            // Show loading state
+            document.getElementById('distance-value').textContent = 'Calculating...';
+            document.getElementById('location-details').textContent = 'Detecting your location...';
+            
+            // Request user's location
+            map.locate({setView: false, maxZoom: 16, timeout: 10000});
+        });
+        
+        // Set up event handlers for location detection
+        map.on('locationfound', onLocationFound);
+        map.on('locationerror', onLocationError);
+        
+        // Add scale control
+        L.control.scale({imperial: false}).addTo(map);
+    </script>
+</body>
+</html>

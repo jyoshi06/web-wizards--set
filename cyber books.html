@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DSU Trichy – Cyber Security Library (Samayapuram)</title>
+  <style>
+    :root { --bg:#f5f7fa; --card:#263238; --text:#eceff1; --muted:#90a4ae; --accent:#4fc3f7; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.6 system-ui,Segoe UI,Roboto,Arial;
+    }
+    .wrap {
+      max-width:900px;
+      margin:40px auto;
+      padding:0 16px;
+    }
+    h1 {
+      font-size:28px;
+      margin:0 0 12px;
+      color:#0d47a1;
+    }
+    p.sub {
+      color:#37474f;
+      margin:0 0 24px;
+    }
+    .acc {
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+    .item + .item { border-top:1px solid #455a64; }
+    .btn {
+      width:100%;
+      text-align:left;
+      padding:18px 20px;
+      background:var(--card);
+      color:var(--text);
+      border:none;
+      cursor:pointer;
+      font-size:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .btn:hover { background:#37474f; }
+    .btn span { font-size:14px; color:var(--muted); }
+    .content {
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+      background:#1c313a;
+      padding:0 20px;
+    }
+    .content.open { padding:16px 20px; }
+    ul { margin:0; padding:0 0 10px 18px; }
+    li { margin:6px 0; }
+    .note {
+      margin-top:16px;
+      color:#546e7a;
+    }
+    footer {
+      margin:28px 0 60px;
+      color:#90a4ae;
+      font-size:13px;
+    }
+    a { color:var(--accent); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Cyber Security Library – DSU Trichy (Samayapuram)</h1>
+    <p class="sub">Cyber Security Department • Library & Digital Resources • Regulation 2021+</p>
+
+    <section class="acc" id="accordion"></section>
+    <p class="note">Note: Information structured for academic purposes. Please check DSU official website/library for updates.</p>
+    <footer>© DSU Trichy – For Academic Use</footer>
+  </main>
+
+<script>
+const data = [
+  { title: "Overview", items: [
+    "Library Location: Engineering Block – Cyber Security Section",
+    "Users: B.Tech (Cyber Security), PG Scholars, Research Scholars, Faculty",
+    "Focus Areas: Network Security, Ethical Hacking, Cryptography, Digital Forensics, Cloud Security",
+  ]},
+  { title: "Timings", items: [
+    "Monday – Friday: 9:00 AM – 6:00 PM",
+    "Saturday: 9:00 AM – 1:00 PM",
+    "Closed on Sundays & Public Holidays",
+  ]},
+  { title: "Contact", items: [
+    "Section Librarian: Cyber Security Division",
+    "Email: cs_library@dsu.ac.in",
+    "Phone: +91-431-0000000",
+  ]},
+  { title: "Print Collection", items: [
+    "Core Textbooks: Cyber Security Fundamentals, Ethical Hacking, Network Security (~1200+ volumes)",
+    "Reference Books: ISO Security Standards, CISSP, CEH Prep Guides",
+    "Department Project Reports & Theses",
+    "Cyber Security Case Studies",
+  ]},
+  { title: "E-Resources", items: [
+    "IEEE Xplore (Cyber Security & IT Security papers)",
+    "Springer Cyber Security Collection",
+    "ScienceDirect (Computer Science & Security titles)",
+    "ACM Digital Library (Security & Privacy)",
+    "NDLI (National Digital Library of India)",
+  ]},
+  { title: "Journals", items: [
+    "IEEE Transactions on Information Forensics and Security",
+    "Journal of Cybersecurity (Oxford)",
+    "International Journal of Information Security",
+    "Indian Journal of Information Security",
+  ]},
+  { title: "Facilities & Labs", items: [
+    "Cyber Security Digital Library terminals",
+    "Access to online labs for penetration testing & simulations",
+    "Software tools: Wireshark, Kali Linux, Metasploit",
+    "Integration with DSU Central Digital Library",
+  ]},
+  { title: "Services", items: [
+    "Research Guidance in Security Domains",
+    "Plagiarism Check & Digital Forensic Support",
+    "Book Lending & Reservation System",
+    "Training Workshops on Ethical Hacking & Network Defense",
+  ]},
+  { title: "Borrowing Rules", items: [
+    "UG Students: 3 books for 14 days",
+    "PG Students: 5 books for 21 days",
+    "Faculty: 10 books with semester loan",
+    "Late submission fine applies",
+  ]},
+  { title: "Important Booklist", items: [
+    "William Stallings – Cryptography and Network Security",
+    "Dafydd Stuttard & Marcus Pinto – The Web Application Hacker’s Handbook",
+    "Matt Bishop – Computer Security: Art and Science",
+    "Jon Erickson – Hacking: The Art of Exploitation",
+  ]},
+  { title: "FAQs", items: [
+    "Does the library provide CEH preparation books? → Yes, available",
+    "Can students access ACM Digital Library off-campus? → Yes, via DSU VPN",
+    "Is there a Cyber Security lab linked to library? → Yes, with online/offline resources",
+  ]},
+];
+
+const acc = document.getElementById("accordion");
+data.forEach((section) => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.innerHTML = `<strong>${section.title}</strong> <span>details</span>`;
+  btn.addEventListener("click", () => {
+    const panel = item.querySelector(".content");
+    const isOpen = panel.style.maxHeight;
+    document.querySelectorAll(".content").forEach(c => { c.style.maxHeight = null; c.classList.remove("open"); });
+    if (!isOpen) {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.classList.add("open");
+    }
+  });
+
+  const panel = document.createElement("div");
+  panel.className = "content";
+  const ul = document.createElement("ul");
+  section.items.forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    ul.appendChild(li);
+  });
+  panel.appendChild(ul);
+
+  item.appendChild(btn);
+  item.appendChild(panel);
+  acc.appendChild(item);
+});
+</script>
+</body>
+</html>

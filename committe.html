@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS University - Engineering Committees</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .logo i {
+            font-size: 40px;
+            color: #283593;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .intro p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .committees {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .committee-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .committee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .committee-header {
+            background: linear-gradient(to right, #3949ab, #303f9f);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .committee-content {
+            padding: 20px;
+        }
+        
+        .head-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .head-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            border: 3px solid #3949ab;
+            overflow: hidden;
+        }
+        
+        .head-photo i {
+            font-size: 40px;
+            color: #3949ab;
+        }
+        
+        .head-details h3 {
+            color: #3949ab;
+            margin-bottom: 5px;
+        }
+        
+        .head-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .committee-responsibilities {
+            margin-top: 15px;
+        }
+        
+        .committee-responsibilities h4 {
+            color: #3949ab;
+            margin-bottom: 10px;
+        }
+        
+        .responsibilities-list {
+            list-style: none;
+        }
+        
+        .responsibilities-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .responsibilities-list li:before {
+            content: "•";
+            color: #3949ab;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 10px;
+        }
+        
+        .contact-info {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: #1a237e;
+            color: white;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .committees {
+                grid-template-columns: 1fr;
+            }
+            
+            .head-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .head-photo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .search-box {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .search-box input {
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 500px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            border-color: #3949ab;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1>Dhanalakshmi Srinivasan University</h1>
+                    <p class="subtitle">Trichy - School of Engineering and Technology Committees</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Academic Committees</h2>
+            <p>The School of Engineering and Technology has established various committees to ensure smooth functioning and continuous improvement in academic and administrative processes.</p>
+            <p>Each committee is headed by an experienced faculty member who oversees the committee's responsibilities and initiatives.</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search committees or heads...">
+        </div>
+        
+        <div class="committees">
+            <!-- Academic Committee -->
+            <div class="committee-card">
+                <div class="committee-header">
+                    <h3>Academic Committee</h3>
+                </div>
+                <div class="committee-content">
+                    <div class="head-info">
+                        <div class="head-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="head-details">
+                            <h3>Dr. R. Kumar</h3>
+                            <p>Professor & Head of CSE</p>
+                            <p>M.Tech, Ph.D (IIT Madras)</p>
+                        </div>
+                    </div>
+                    <div class="committee-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Curriculum development and review</li>
+                            <li>Academic calendar planning</li>
+                            <li>Teaching-learning process monitoring</li>
+                            <li>Faculty development programs</li>
+                            <li>Student academic grievance redressal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Placement Committee -->
+            <div class="committee-card">
+                <div class="committee-header">
+                    <h3>Placement Committee</h3>
+                </div>
+                <div class="committee-content">
+                    <div class="head-info">
+                        <div class="head-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="head-details">
+                            <h3>Dr. S. Meenakshi</h3>
+                            <p>Professor & Head of ECE</p>
+                            <p>M.E, Ph.D (NIT Trichy)</p>
+                        </div>
+                    </div>
+                    <div class="committee-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Industry-institute interaction</li>
+                            <li>Placement training programs</li>
+                            <li>Organizing campus recruitment</li>
+                            <li>Internship opportunities</li>
+                            <li>Alumni relations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Research & Development Committee -->
+            <div class="committee-card">
+                <div class="committee-header">
+                    <h3>Research & Development Committee</h3>
+                </div>
+                <div class="committee-content">
+                    <div class="head-info">
+                        <div class="head-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="head-details">
+                            <h3>Dr. A. Rajesh</h3>
+                            <p>Professor of Mechanical Engineering</p>
+                            <p>M.E, Ph.D (IIT Delhi)</p>
+                        </div>
+                    </div>
+                    <div class="committee-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Promoting research culture</li>
+                            <li>Research grant proposals</li>
+                            <li>Journal publications</li>
+                            <li>Patent filing assistance</li>
+                            <li>Organizing conferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Discipline Committee -->
+            <div class="committee-card">
+                <div class="committee-header">
+                    <h3>Discipline Committee</h3>
+                </div>
+                <div class="committee-content">
+                    <div class="head-info">
+                        <div class="head-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="head-details">
+                            <h3>Dr. M. Vishwanathan</h3>
+                            <p>Professor of Civil Engineering</p>
+                            <p>M.Tech, Ph.D (Anna University)</p>
+                        </div>
+                    </div>
+                    <div class="committee-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Maintaining campus discipline</li>
+                            <li>Code of conduct implementation</li>
+                            <li>Student behavior monitoring</li>
+                            <li>Disciplinary action review</li>
+                            <li>Anti-ragging initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cultural Committee -->
+            <div class="committee-card">
+                <div class="committee-header">
+                    <h3>Cultural Committee</h3>
+                </div>
+                <div class="committee-content">
+                    <div class="head-info">
+                        <div class="head-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="head-details">
+                            <h3>Dr. P. Anitha</h3>
+                            <p>Associate Professor of English</p>
+                            <p>M.A, Ph.D (Madurai University)</p>
+                        </div>
+                    </div>
+                    <div class="committee-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Organizing cultural events</li>
+                            <li>Annual college festival</li>
+                            <li>Talent promotion</li>
+                            <li>Inter-college competitions</li>
+                            <li>Cultural club activities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sports Committee -->
+            <div class="committee-card">
+                <div class="committee-header">
+                    <h3>Sports Committee</h3>
+                </div>
+                <div class="committee-content">
+                    <div class="head-info">
+                        <div class="head-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="head-details">
+                            <h3>Prof. K. Senthil</h3>
+                            <p>Director of Physical Education</p>
+                            <p>M.P.Ed, Ph.D (Bharathiar University)</p>
+                        </div>
+                    </div>
+                    <div class="committee-responsibilities">
+                        <h4>Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Sports facilities management</li>
+                            <li>Inter-college tournaments</li>
+                            <li>Annual sports day</li>
+                            <li>Athlete training programs</li>
+                            <li>Sports equipment maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <h3>For Committee Related Queries</h3>
+            <p>Office of the Dean, School of Engineering and Technology</p>
+            <p>Dhanalakshmi Srinivasan University, Trichy</p>
+            <p>Email: <span class="highlight">engg-office@dsuniversity.ac.in</span></p>
+            <p>Phone: <span class="highlight">+91 431 267 0123</span> (Ext. 221)</p>
+            <p>Office Hours: 9:00 AM to 4:00 PM (Monday to Friday)</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Dhanalakshmi Srinivasan University, Trichy - School of Engineering and Technology</p>
+            <p>Committees play a vital role in maintaining academic excellence and student development</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const committeeCards = document.querySelectorAll('.committee-card');
+            
+            searchInput.addEventListener('keyup', function() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                committeeCards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(searchTerm)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Add animation to cards
+            committeeCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

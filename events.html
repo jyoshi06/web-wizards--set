@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        .description {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #3498db;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: calc(50% - 40px);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 40px;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+        }
+        
+        .date {
+            background: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .event-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .event-type {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            color: white;
+            text-transform: uppercase;
+        }
+        
+        .seminar { background-color: #e74c3c; }
+        .conference { background-color: #2ecc71; }
+        .workshop { background-color: #f39c12; }
+        .hackathon { background-color: #9b59b6; }
+        .nss { background-color: #1abc9c; }
+        .club { background-color: #34495e; }
+        .other { background-color: #7f8c8d; }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                justify-content: flex-start !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 70px);
+                margin-left: 70px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-content::after {
+                left: -10px !important;
+                right: auto !important;
+            }
+        }
+        
+        .year-separator {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .year-separator span {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Events Timeline</h1>
+            <p class="description">Browse through our upcoming and past events, seminars, workshops, and conferences</p>
+        </header>
+        
+        <div class="timeline">
+            <div class="year-separator"><span>2025</span></div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">05-04-2025</span>
+                    <div class="event-type seminar">Seminar</div>
+                    <h3 class="event-title">Design Thinking and Visual Effects</h3>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">7th & 8th Feb 2025</span>
+                    <div class="event-type workshop">Workshop</div>
+                    <h3 class="event-title">Reconfigurable Technology</h3>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">10-02-2025</span>
+                    <div class="event-type conference">Conference</div>
+                    <h3 class="event-title">International conference</h3>
+                </div>
+            </div>
+            
+            <div class="year-separator"><span>2024</span></div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">19-12-2024</span>
+                    <div class="event-type workshop">Workshop</div>
+                    <h3 class="event-title">Data Science with Python</h3>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">17-12-2024</span>
+                    <div class="event-type hackathon">Hackathon</div>
+                    <h3 class="event-title">HACKATHON 1st day</h3>
+                </div>
+            </div>
+            
+            <!-- Add more events following the same pattern -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">23-10-2024</span>
+                    <div class="event-type other">Activity</div>
+                    <h3 class="event-title">Art from Waste</h3>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">21-10-2024</span>
+                    <div class="event-type workshop">Workshop</div>
+                    <h3 class="event-title">Study and Maintenance of Instruments/tools/equipments Utilized in Testing/Research/Institutional Laboratories</h3>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">12-08-2024</span>
+                    <div class="event-type other">Awareness</div>
+                    <h3 class="event-title">Anti-Ragging Awareness Rally</h3>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">19-07-2024</span>
+                    <div class="event-type nss">NSS</div>
+                    <h3 class="event-title">UBA Activity Baseline Survey at Perakambi Village</h3>
+                </div>
+            </div>
+            
+            <!-- Continue adding all other events -->
+            
+            <div class="year-separator"><span>2023</span></div>
+            
+            <!-- Add 2023 events -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="date">22-12-2023</span>
+                    <div class="event-type workshop">Workshop</div>
+                    <h3 class="event-title">Process of Innovation Development / Technology Readiness Level</h3>
+                </div>
+            </div>
+            
+            <!-- Continue with remaining events -->
+            
+        </div>
+    </div>
+</body>
+</html>

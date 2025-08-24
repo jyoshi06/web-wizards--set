@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS University - Engineering Clubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .logo i {
+            font-size: 40px;
+            color: #283593;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .schools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .school-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+        
+        .school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .school-header {
+            background: linear-gradient(to right, #3949ab, #303f9f);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .school-content {
+            padding: 20px;
+        }
+        
+        .clubs-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .club-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-left: 4px solid #3949ab;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .club-item:hover {
+            background: #e8eaf6;
+            transform: translateX(5px);
+        }
+        
+        .club-details {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .club-details.active {
+            display: block;
+        }
+        
+        .club-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e8eaf6;
+        }
+        
+        .close-btn {
+            background: #ff5252;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .close-btn:hover {
+            background: #ff0000;
+        }
+        
+        .club-info {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        
+        .club-image {
+            background: #f5f5f5;
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 1.2rem;
+        }
+        
+        .club-description h3 {
+            color: #3949ab;
+            margin-bottom: 15px;
+        }
+        
+        .activities-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .activities-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .activities-list li:before {
+            content: "•";
+            color: #3949ab;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: #1a237e;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .club-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .schools-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h1>Dhanalakshmi Srinivasan University</h1>
+                    <p class="subtitle">Trichy - School of Engineering and Technology Clubs</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>Engineering Departments & Clubs</h2>
+        <p>Click on a club to see more details</p>
+        
+        <div class="schools-container">
+            <!-- Computer Science & Engineering -->
+            <div class="school-card">
+                <div class="school-header">
+                    <h3>Computer Science & Engineering</h3>
+                </div>
+                <div class="school-content">
+                    <p>Clubs related to computing, programming, and digital innovation.</p>
+                    <ul class="clubs-list">
+                        <li class="club-item" data-club="codehub">CodeHub - Programming Club</li>
+                        <li class="club-item" data-club="ai-club">AI & Machine Learning Club</li>
+                        <li class="club-item" data-club="cyber-club">Cyber Security Club</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Electronics & Communication -->
+            <div class="school-card">
+                <div class="school-header">
+                    <h3>Electronics & Communication</h3>
+                </div>
+                <div class="school-content">
+                    <p>Clubs focused on electronics, robotics, and communication technologies.</p>
+                    <ul class="clubs-list">
+                        <li class="club-item" data-club="robotics">Robotics Club</li>
+                        <li class="club-item" data-club="iot-club">IoT Innovators Club</li>
+                        <li class="club-item" data-club="circuit-club">Circuit Design Club</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mechanical Engineering -->
+            <div class="school-card">
+                <div class="school-header">
+                    <h3>Mechanical Engineering</h3>
+                </div>
+                <div class="school-content">
+                    <p>Clubs for mechanical design, automotive, and energy systems.</p>
+                    <ul class="clubs-list">
+                        <li class="club-item" data-club="automotive">Automotive Club</li>
+                        <li class="club-item" data-club="cad-club">CAD Design Club</li>
+                        <li class="club-item" data-club="energy-club">Energy Club

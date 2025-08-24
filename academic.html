@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Calendar 2025-2026 - Dhanalakshmi Srinivasan University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4eaf1 100%);
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .logo i {
+            font-size: 40px;
+            color: #283593;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .calendar-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .calendar-info p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .note {
+            background: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffb300;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .main-table th, .main-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .main-table th {
+            background: #1a237e;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .main-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .main-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .month-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .month-title {
+            color: #1a237e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .month-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .month-table th, .month-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .month-table th {
+            background: #f5f7fa;
+            font-weight: 600;
+        }
+        
+        .holiday {
+            background: #ffebee;
+            color: #d32f2f;
+            font-weight: 500;
+        }
+        
+        .event {
+            background: #e8f5e9;
+            color: #388e3c;
+            font-weight: 500;
+        }
+        
+        .working-days {
+            margin-top: 15px;
+            font-weight: 500;
+            color: #1a237e;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: #1a237e;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #283593;
+        }
+        
+        @media (max-width: 768px) {
+            .main-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .month-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div>
+                    <h1>Dhanalakshmi Srinivasan University</h1>
+                    <p class="subtitle">Tiruchirappalli - 621 112 Tamil Nadu</p>
+                    <p class="subtitle">Academic Calendar 2025-2026 Odd Semester</p>
+                    <p class="subtitle">School of Engineering and Technology</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="calendar-info">
+            <h2>Academic Schedule 2025-26 Odd Semester</h2>
+            <p>This calendar applies to III, V, and VII Semesters of all branches in the School of Engineering and Technology.</p>
+            
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th>Sl.no</th>
+                        <th>Particulars</th>
+                        <th>VII Sem.</th>
+                        <th>V Sem.</th>
+                        <th>III Sem.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Commencement of Classes</td>
+                        <td>21.07.2025</td>
+                        <td>21.07.2025</td>
+                        <td>21.07.2025</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Placement Training</td>
+                        <td>21.07.2025 to 06.08.2025</td>
+                        <td>07.08.2025 to 20.08.2025 & 08.09.2025 to 12.09.2025</td>
+                        <td>21.08.2025 to 02.09.2025 & 07.10.2025 to 11.10.2025</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Unit I Completion</td>
+                        <td>23.08.2025</td>
+                        <td>02.08.2025</td>
+                        <td>02.08.2025</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Unit II Completion</td>
+                        <td>13.09.2025</td>
+                        <td>02.09.2025</td>
+                        <td>20.08.2025</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>CAT I</td>
+                        <td>15.09.2025</td>
+                        <td>15.09.2025</td>
+                        <td>15.09.2025</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Unit III Completion</td>
+                        <td>27.09.2025</td>
+                        <td>27.09.2025</td>
+                        <td>23.09.2025</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Unit IV Completion</td>
+                        <td>17.10.2025</td>
+                        <td>17.10.2025</td>
+                        <td>23.10.2025</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>CAT II</td>
+                        <td>27.10.2025</td>
+                        <td>27.10.2025</td>
+                        <td>27.10.2025</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Completion of Lab Experiments</td>
+                        <td>07.11.2025</td>
+                        <td>07.11.2025</td>
+                        <td>07.11.2025</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Unit V Completion</td>
+                        <td>07.11.2025</td>
+                        <td>07.11.2025</td>
+                        <td>07.11.2025</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Revision Classes</td>
+                        <td>08.11.2025</td>
+                        <td>08.11.2025</td>
+                        <td>08.11.2025</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Model Practical Examination</td>
+                        <td>08.11.2025</td>
+                        <td>08.11.2025</td>
+                        <td>08.11.2025</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Model Theory Examination</td>
+                        <td>14.11.2025</td>
+                        <td>14.11.2025</td>
+                        <td>14.11.2025</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Last Working Day</td>
+                        <td>21.11.2025</td>
+                        <td>21.11.2025</td>
+                        <td>21.11.2025</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Commencement of Practical Examination</td>
+                        <td>24.11.2025</td>
+                        <td>24.11.2025</td>
+                        <td>24.11.2025</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>University Theory Exam Commences on</td>
+                        <td>03.12.2025</td>
+                        <td>03.12.2025</td>
+                        <td>03.12.2025</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Reopening Day for Even Semester</td>
+                        <td>02.01.2026</td>
+                        <td>02.01.2026</td>
+                        <td>02.01.2026</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="note">
+                <p><strong>Note:</strong></p>
+                <p>1. Model Practical Exam must be conducted as per the given schedule.</p>
+                <p>2. Syllabus must be completed as per the lesson plan in time.</p>
+            </div>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">July 2025</h2>
+            <table class="month-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="holiday">
+                        <td>6</td>
+                        <td>Sunday</td>
+                        <td>Muharram</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>13</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr class="event">
+                        <td>19</td>
+                        <td>Saturday</td>
+                        <td>Shanalakshmi Amma Memorial Day</td>
+                    </tr>
+                    <tr class="event">
+                        <td>21</td>
+                        <td>Monday</td>
+                        <td>Opening Day (II, III & IV Years)</td>
+                    </tr>
+                    <tr class="event">
+                        <td>21</td>
+                        <td>Monday</td>
+                        <td>IV Year Placement Training Starts</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="working-days">Cumulative Working Days: 10</p>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">August 2025</h2>
+            <table class="month-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Friday</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Saturday</td>
+                        <td>UNIT 1 COMPLETION (III & II YEARS)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>3</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>4-5</td>
+                        <td>Monday-Tuesday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>6</td>
+                        <td>Wednesday</td>
+                        <td>IV-YEAR PLACEMENT TRAINING ENDS</td>
+                    </tr>
+                    <tr class="event">
+                        <td>7</td>
+                        <td>Thursday</td>
+                        <td>III-YEAR PLACEMENT TRAINING STARTS</td>
+                    </tr>
+                    <tr>
+                        <td>8-9</td>
+                        <td>Friday-Saturday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>10</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>11-14</td>
+                        <td>Monday-Thursday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>15</td>
+                        <td>Friday</td>
+                        <td>Independence Day</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Saturday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>17</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>18-19</td>
+                        <td>Monday-Tuesday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>20</td>
+                        <td>Wednesday</td>
+                        <td>UNIT 2 COMPLETION (II YEAR)<br>III-YEAR PLACEMENT TRAINING ENDS</td>
+                    </tr>
+                    <tr class="event">
+                        <td>21</td>
+                        <td>Thursday</td>
+                        <td>II-YEAR PLACEMENT TRAINING STARTS</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Friday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>23</td>
+                        <td>Saturday</td>
+                        <td>UNIT 1 COMPLETION (IV YEAR)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>24</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>25-26</td>
+                        <td>Monday-Tuesday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>27</td>
+                        <td>Wednesday</td>
+                        <td>Ganesh Chaturthi</td>
+                    </tr>
+                    <tr>
+                        <td>28-30</td>
+                        <td>Thursday-Saturday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>31</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="working-days">Working Days: 22<br>Cumulative Working Days: 32</p>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">September 2025</h2>
+            <table class="month-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Monday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>2</td>
+                        <td>Tuesday</td>
+                        <td>UNIT 2 COMPLETION (III YEAR)<br>II-YEAR PLACEMENT TRAINING ENDS</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>3-6</td>
+                        <td>Wednesday-Saturday</td>
+                        <td>ONAM- HOLIDAY</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>7</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr class="event">
+                        <td>8</td>
+                        <td>Monday</td>
+                        <td>III-YEAR PLACEMENT TRAINING STARTS</td>
+                    </tr>
+                    <tr>
+                        <td>9-11</td>
+                        <td>Tuesday-Thursday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>12</td>
+                        <td>Friday</td>
+                        <td>III-YEAR PLACEMENT TRAINING ENDS</td>
+                    </tr>
+                    <tr class="event">
+                        <td>13</td>
+                        <td>Saturday</td>
+                        <td>UNIT 2 COMPLETION (IV YEAR)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>14</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr class="event">
+                        <td>15</td>
+                        <td>Monday</td>
+                        <td>CAT 1 EXAM STARTS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr>
+                        <td>16-19</td>
+                        <td>Tuesday-Friday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>20</td>
+                        <td>Saturday</td>
+                        <td>CAT 1 EXAM ENDS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>21</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>Monday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>23</td>
+                        <td>Tuesday</td>
+                        <td>UNIT 3 COMPLETION (II YEAR)</td>
+                    </tr>
+                    <tr>
+                        <td>24-26</td>
+                        <td>Wednesday-Friday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>27</td>
+                        <td>Saturday</td>
+                        <td>UNIT 3 COMPLETION (III & IV YEARS)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>28</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>29-30</td>
+                        <td>Monday-Tuesday</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="working-days">Working Days: 22<br>Cumulative Working Days: 54</p>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">October 2025</h2>
+            <table class="month-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="holiday">
+                        <td>1</td>
+                        <td>Wednesday</td>
+                        <td>MAHA NAVAMI</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>2</td>
+                        <td>Thursday</td>
+                        <td>VIJAYA DASHAMI</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>3-4</td>
+                        <td>Friday-Saturday</td>
+                        <td>Holiday</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>5</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>6-7</td>
+                        <td>Monday-Tuesday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>7</td>
+                        <td>Tuesday</td>
+                        <td>II-YEAR PLACEMENT TRAINING STARTS</td>
+                    </tr>
+                    <tr>
+                        <td>8-10</td>
+                        <td>Wednesday-Friday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>11</td>
+                        <td>Saturday</td>
+                        <td>II-YEAR PLACEMENT TRAINING ENDS</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>12</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>13-16</td>
+                        <td>Monday-Thursday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>17</td>
+                        <td>Friday</td>
+                        <td>UNIT 4 COMPLETION (III & IV YEARS)</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Saturday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>19</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>20</td>
+                        <td>Monday</td>
+                        <td>Diwali</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>21</td>
+                        <td>Tuesday</td>
+                        <td>Holiday</td>
+                    </tr>
+                    <tr class="event">
+                        <td>22</td>
+                        <td>Wednesday</td>
+                        <td>UNIT 4 COMPLETION (II YEAR)</td>
+                    </tr>
+                    <tr>
+                        <td>23-24</td>
+                        <td>Thursday-Friday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>25</td>
+                        <td>Saturday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>Monday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>27</td>
+                        <td>Tuesday</td>
+                        <td>CAT 2 EXAM STARTS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr>
+                        <td>28-30</td>
+                        <td>Wednesday-Friday</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>Saturday</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="working-days">Working Days: 19<br>Cumulative Working Days: 73</p>
+        </div>
+
+        <div class="month-section">
+            <h2 class="month-title">November 2025</h2>
+            <table class="month-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Day</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="event">
+                        <td>1</td>
+                        <td>Saturday</td>
+                        <td>CAT 2 EXAM ENDS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>2</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>3-6</td>
+                        <td>Monday-Thursday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>7</td>
+                        <td>Friday</td>
+                        <td>UNIT V COMPLETION & COMPLETION OF LAB EXPERIMENTS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr class="event">
+                        <td>8</td>
+                        <td>Saturday</td>
+                        <td>REVISION CLASS STARTS/MODEL PRACTICAL STARTS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>9</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>10-12</td>
+                        <td>Monday-Wednesday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>13</td>
+                        <td>Thursday</td>
+                        <td>REVISION CLASS ENDS/MODEL PRACTICAL ENDS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr class="event">
+                        <td>14</td>
+                        <td>Friday</td>
+                        <td>MODEL EXAM STARTS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Saturday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>16</td>
+                        <td>Sunday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr>
+                        <td>17-20</td>
+                        <td>Monday-Thursday</td>
+                        <td></td>
+                    </tr>
+                    <tr class="event">
+                        <td>21</td>
+                        <td>Friday</td>
+                        <td>MODEL EXAM ENDS-LAST WORKING DAY (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>22</td>
+                        <td>Saturday</td>
+                        <td>Sunday</td>
+                    </tr>
+                    <tr class="event">
+                        <td>23</td>
+                        <td>Sunday</td>
+                        <td>END SEM PRACTICAL EXAM STARTS (II, III & IV YEARS)</td>
+                    </tr>
+                    <tr class="holiday">
+                        <td>24-25</td>
+                        <td>Monday-Tuesday</td>
+                        <td>Sunday</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="working-days">Working Days: 23<br>Cumulative Working Days: 96</p>
+        </div>
+
+        <a href="#" class="download-btn">
+            <i class="fas fa-download"></i> Download Academic Calendar
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Dhanalakshmi Srinivasan University - School of Engineering and Technology</p>
+            <p>Tiruchirappalli - 621 112 Tamil Nadu</p>
+        </div>
+    </footer>
+</body>
+</html>

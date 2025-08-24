@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSU Trichy – B.Tech AI & DS Syllabus (Reg 2021)</title>
+  <style>
+    :root { --bg:#f9f9fa; --card:#121a2a; --text:#afb4c1; --muted:#a9b3c7; --accent:#6aa1ff; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Segoe UI,Roboto,Arial}
+    .wrap{max-width:900px;margin:40px auto;padding:0 16px}
+    h1{font-size:28px;margin:0 0 12px}
+    p.sub{color:var(--muted);margin:0 0 24px}
+    .acc{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .item + .item{border-top:1px solid #1f2a44}
+    .btn{width:100%;text-align:left;padding:18px 20px;background:var(--card);color:var(--text);border:none;cursor:pointer;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+    .btn:hover{background:#17233a}
+    .btn span{font-size:14px;color:var(--muted)}
+    .content{max-height:0;overflow:hidden;transition:max-height .35s ease;background:#0f182b;padding:0 20px}
+    .content.open{padding:16px 20px}
+    ul{margin:0;padding:0 0 8px 18px}
+    li{margin:6px 0}
+    .tag{display:inline-block;font-size:12px;border:1px solid #29406b;padding:2px 8px;border-radius:999px;color:#bcd0ff;margin-left:8px}
+    .note{margin-top:16px;color:#b3c2dc}
+    footer{margin:24px 0 60px;color:#6d7c97;font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>DSU Trichy – B.Tech Artificial Intelligence & Data Science</h1>
+    <p class="sub">Regulation 2021 • School of Engineering & Technology • Semesters I–VIII</p>
+
+    <section class="acc" id="accordion"></section>
+    <p class="note">Source: Official DSU “AIDS Curriculum” PDF (Reg. 2021). Check the university site for any updates.</p>
+    <footer>© for personal academic use</footer>
+  </main>
+
+<script>
+const data = [
+  { sem: "Semester I", items: [
+    "Basics in Communication (HS)", "Algebra and Calculus (BS)", "Engineering Physics (BS)",
+    "Engineering Graphics & Design (ES)", "Python Programming (ES)",
+    "Engineering Physics Laboratory (BS)", "Python Programming Laboratory (ES)", "Yoga (NC)"
+  ], credits: "18" },
+  { sem: "Semester II", items: [
+    "Technical Communication (HS)","Advanced Calculus and ODE (BS)","Engineering Chemistry (BS)",
+    "Basic Electrical & Electronics Engineering (ES)","Programming in C (PC)","Java Programming (PC)",
+    "Workshop Practices (ES)","Engineering Chemistry Lab (BS)","Communication Skills Lab (HS)",
+    "Java Programming Lab (PC)","Programming in C Lab (PC)","NSS (NC)"
+  ], credits: "23" },
+  { sem: "Semester III", items: [
+    "Discrete Structures (BS)","Foundations of Artificial Intelligence (PC)","Computer Architecture (PC)",
+    "Analog & Digital Electronics (ES)","Data Structures (PC)","RDBMS & MySQL (PC)",
+    "Professional Communication (HS)","Data Structures Lab (PC)","AI Lab (PC)",
+    "RDBMS & MySQL Lab (PC)","Environmental Science (NC)"
+  ], credits: "23" },
+  { sem: "Semester IV", items: [
+    "Probability & Statistics (BS)","Foundations of Data Science (PC)","Design & Analysis of Algorithms (PC)",
+    "Operating Systems (PC)","Computer Networks (PC)","Microservices Architecture & Implementation (PC)",
+    "Advanced Technical Communication (HS)","Computer Networks Lab (PC)","Operating Systems Lab (PC)",
+    "Microservices Architecture Lab (PC)","Renewable Energy Source (NC)"
+  ], credits: "23" },
+  { sem: "Semester V", items: [
+    "Data Visualization – R/Python/Watson Studio (PC)","Web Programming (PC)","Deep Learning & its Applications (PC)",
+    "Algorithms for Intelligent Systems (PC)","Professional Elective I (PE)","Universal Human Values 2 (HS)",
+    "Data Visualization Lab (PC)","Web Programming Lab (PC)","Professional Communication Lab (HS)",
+    "Essence of Indian Traditional Knowledge (NC)"
+  ], credits: "20" },
+  { sem: "Semester VI", items: [
+    "Mobile Computing (PC)","Information Retrieval Systems (PC)","Professional Elective II (PE)",
+    "Open Elective I (OE)","Predictive Modeling (PC)","Predictive Modeling Lab (PC)",
+    "Mobile Application Development Lab (PC)","Mini Project (EEC)"
+  ], credits: "17" },
+  { sem: "Semester VII", items: [
+    "Disaster Management (HS)","Open Elective II (OE)","Professional Elective III (PE)","Professional Elective IV (PE)",
+    "Machine Learning using Watson Studio (PC)","ML using Watson Studio Lab (PC)","Internship & Publication (EEC)"
+  ], credits: "18" },
+  { sem: "Semester VIII", items: [
+    "Professional Elective V (PE)","AI Analyst – AP Skills (PC)","AI Analyst – AP Skills Lab (PC)","Project Work (EEC)"
+  ], credits: "18" },
+];
+
+const acc = document.getElementById("accordion");
+data.forEach((s, i) => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.innerHTML = `<strong>${s.sem}</strong> <span>${s.credits} credits</span>`;
+  btn.addEventListener("click", () => {
+    const p = item.querySelector(".content");
+    const open = p.style.maxHeight;
+    document.querySelectorAll(".content").forEach(el => { el.style.maxHeight = null; el.classList.remove("open"); });
+    if (!open) { p.style.maxHeight = p.scrollHeight + "px"; p.classList.add("open"); }
+  });
+
+  const panel = document.createElement("div");
+  panel.className = "content";
+  const ul = document.createElement("ul");
+  s.items.forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+  panel.appendChild(ul);
+
+  item.appendChild(btn);
+  item.appendChild(panel);
+  acc.appendChild(item);
+});
+</script>
+</body>
+</html>

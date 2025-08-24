@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Departments</title>
+  <style>
+    :root{
+      --bg:#eef2f7;
+      --card:#ffffff;
+      --text:#0f172a;
+      --accent:#2563eb;   /* accent blue */
+      --accent-dark:#1e40af;
+      --shadow:0 6px 18px rgba(2,8,23,.12);
+      --shadow-hover:0 16px 28px rgba(37,99,235,.35);
+      --shadow-pressed:inset 0 4px 12px rgba(0,0,0,.3);
+      --radius:16px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.5;
+    }
+
+    .wrap{
+      max-width:900px;
+      margin:48px auto;
+      padding:0 16px 56px;
+    }
+
+    h1{
+      font-size:clamp(24px, 2.5vw, 34px);
+      margin:0 0 20px;
+      font-weight:700;
+    }
+
+    p.lead{
+      margin:0 0 28px;
+      color:#475569;
+    }
+
+    ul.dept-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .dept-button{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:16px;
+      text-decoration:none;
+      background:var(--card);
+      color:var(--text);
+      padding:22px 24px;
+      min-height:72px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(15,23,42,.08);
+      transition:
+        transform .2s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        color .25s ease;
+      font-size:clamp(16px, 1.4vw, 20px);
+      font-weight:600;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Glow on hover */
+    .dept-button::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      background:radial-gradient(circle at center,
+        rgba(37,99,235,.25) 0%, transparent 70%);
+      opacity:0;
+      transition:opacity .25s ease;
+      z-index:0;
+    }
+
+    .dept-button span, .chev{
+      position:relative;
+      z-index:1;
+    }
+
+    .dept-button:hover{
+      transform:translateY(-6px) scale(1.03);
+      box-shadow:var(--shadow-hover);
+      border-color:rgba(37,99,235,.45);
+    }
+    .dept-button:hover::before{
+      opacity:1;
+    }
+
+    /* When button is pressed (click) */
+    .dept-button:active{
+      transform:translateY(2px) scale(0.97);
+      box-shadow:var(--shadow-pressed);
+      background:var(--accent);
+      color:#fff;
+    }
+    .dept-button:active .chev{
+      opacity:1;
+      color:#fff;
+    }
+
+    .dept-button:focus-visible{
+      outline:3px solid var(--accent);
+      outline-offset:3px;
+    }
+
+    .chev{
+      margin-left:auto;
+      font-size:20px;
+      opacity:.55;
+      transition:color .25s ease, opacity .25s ease;
+    }
+
+    @media (max-width:480px){
+      .dept-button{ padding:18px; min-height:66px }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>School of Engineering &amp; Technology Library Details</h1>
+    <p class="lead">Choose a department:</p>
+
+    <ul class="dept-list">
+      <li><a class="dept-button" href="ai books.html"><span>B.Tech CSE (Artificial Intelligence &amp; Data Science)</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="com books.html"><span>B.Tech Computer Science and Engineering</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="agri books.html"><span>B.Tech Agricultural Engineering</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="bio books.html"><span>B.Tech  Biomedical Engineering</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="cyber books.html"><span>B.Tech CSE (Cyber Security)</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="electrical books.html"><span>B.Tech  Electrical &amp; Electronics Engineering</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="electonics books.html"><span>B.Tech Electronics &amp; Communication Engineering</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="embedded books.html"><span>B.Tech ECE (Embedded Systems)</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="it books.html"><span>B.Tech  Information Technology</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="mech books.html"><span>B.Tech  Mechanical Engineering</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="aiml books.html"><span>B.Tech  Mechanical (AI &amp; ML)</span><span class="chev">›</span></a></li>
+      <li><a class="dept-button" href="robots books.html"><span>B.Tech –Mechanical (Robotics)</span><span class="chev">›</span></a></li>
+    </ul>
+  </main>
+</body>
+</html>

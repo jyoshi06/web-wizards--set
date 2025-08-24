@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DSU Trichy – Agricultural Engineering Library Details</title>
+  <style>
+    :root { --bg:#f7f9fc; --card:#204f14; --text:#e6ecf5; --muted:#aab8d4; --accent:#81c784; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.6 system-ui,Segoe UI,Roboto,Arial;
+    }
+    .wrap {
+      max-width:900px;
+      margin:40px auto;
+      padding:0 16px;
+    }
+    h1 {
+      font-size:28px;
+      margin:0 0 12px;
+    }
+    p.sub {
+      color:var(--muted);
+      margin:0 0 24px;
+    }
+    .acc {
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 26px rgba(0, 0, 0, .35);
+    }
+    .item + .item {
+      border-top:1px solid #2e4f27;
+    }
+    .btn {
+      width:100%;
+      text-align:left;
+      padding:18px 20px;
+      background:var(--card);
+      color:var(--text);
+      border:none;
+      cursor:pointer;
+      font-size:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .btn:hover {
+      background:#2e6e38;
+    }
+    .btn span {
+      font-size:14px;
+      color:var(--muted);
+    }
+    .content {
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+      background:#1d3f1a;
+      padding:0 20px;
+    }
+    .content.open {
+      padding:16px 20px;
+    }
+    ul {
+      margin:0;
+      padding:0 0 10px 18px;
+    }
+    li {
+      margin:6px 0;
+    }
+    .note {
+      margin-top:16px;
+      color:#b3c2dc;
+    }
+    footer {
+      margin:28px 0 60px;
+      color:#74809c;
+      font-size:13px;
+    }
+    a {
+      color:var(--accent);
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Agricultural Engineering Library – DSU Trichy (Samayapuram)</h1>
+    <p class="sub">Everything you need: Resources, access, and services • Agri-Engineering Department • Reg. 2021+</p>
+
+    <section class="acc" id="accordion"></section>
+    <p class="note">Note: Entries here are illustrative placeholders. Replace with official DSU details once available.</p>
+    <footer>© for academic use</footer>
+  </main>
+
+<script>
+const data = [
+  { title: "Overview", items: [
+    "Location: Central Library – Agricultural Engineering Section (2nd Floor)",
+    "Audience: B.Tech Agri Engg, PG, Research Scholars, Faculty",
+    "Focus Areas: Soil & Water Conservation, Farm Machinery, Irrigation, Post-Harvest Tech, Renewable Energy",
+  ]},
+  { title: "Timings", items: [
+    "Mon–Fri: 9:00 AM – 6:00 PM",
+    "Sat: 9:00 AM – 1:00 PM",
+    "Sun/Holidays: Closed",
+  ]},
+  { title: "Contact", items: [
+    "Section Librarian: [Name Placeholder]",
+    "Email: agri-library@dsu.ac.in (sample)",
+    "Phone: +91-00000-00000 (sample)",
+  ]},
+  { title: "Print Collection", items: [
+    "Textbooks: Soil Science, Farm Machinery, Irrigation, Agronomy, Post-Harvest Handling (~2000+ titles)",
+    "Reference: Technical Handbooks, Standards (BIS, ISO), Farm Codes",
+    "Theses & Project Reports from past students",
+    "Magazines: Agricultural Engineering Today, Crop Life International (print copies)",
+  ]},
+  { title: "E-Books & Monographs", items: [
+    "SpringerLink eBooks: Agricultural and Food Engineering",
+    "Elsevier ScienceDirect (Agricultural Engineering titles)",
+    "ProQuest eBook Central – Agri-Tech collection",
+    "NDLI e-books for Agriculture & Environment.",
+  ]},
+  { title: "Journals & Proceedings", items: [
+    "Transactions of ASABE, Agricultural Water Management (Elsevier)",
+    "International Journal of Agricultural & Biological Engineering",
+    "Biosystems Engineering (Elsevier)",
+    "Journals via IEEE Xplore for Automation in Agri-Tech",
+  ]},
+  { title: "Databases & Portals", items: [
+    "SpringerLink / ScienceDirect",
+    "ASABE Digital Library",
+    "Scopus / Web of Science",
+    "NDLI (National Digital Library of India)",
+    "AGRIS (UNFAO), KrishiKosh / ICAR repository",
+  ]},
+  { title: "Software & Labs", items: [
+    "Licensed: MATLAB (incl. SimHydrology, SimScape)",
+    "Open-source: QGIS, SWAT model, Google Earth Engine (Agri-spatial analysis)",
+    "Dept. Lab: Soil-water sensors, moisture meters, irrigation models equipment",
+  ]},
+  { title: "Services", items: [
+    "Reference help & literature search assistance",
+    "Plagiarism detection (as per faculty need)",
+    "Workshops: GIS for agriculture, Remote Sensing basics, Thesis writing",
+    "Interlibrary Loan / Document Delivery as needed",
+  ]},
+  { title: "Borrowing & Access", items: [
+    "UG: 3–5 books / 14 days; PG: 5–7 / 21 days; Faculty: 10+",
+    "Up to 2 renewals if not reserved",
+    "Off-campus e-resource access: via DSU VPN/SSO",
+  ]},
+  { title: "Study Spaces & Equipment", items: [
+    "Reading hall, group study tables (pre-booked)",
+    "Agri-Tech resources shelf – new arrivals",
+    "GIS/Computer terminals with high-speed Wi-Fi",
+  ]},
+  { title: "Core Agri-Engg Booklist", items: [
+    "Michael A. Campana – Irrigation and Drainage Engineering",
+    "Perry’s Chemical Engineers’ Handbook – Food Processing section",
+    "Swanston & Swain – Farm Machinery and Power",
+    "Klaus Weyerhaeuser – Postharvest Technology of Agricultural Crops",
+  ]},
+  { title: "FAQs", items: [
+    "How to request remote access to databases? → Use DSU VPN",
+    "Need a book not found in catalog? → Use Purchase Recommendation form",
+    "Are workshops offered? → Yes, every semester (watch notice board)",
+  ]},
+];
+
+const acc = document.getElementById("accordion");
+data.forEach((section) => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.innerHTML = `<strong>${section.title}</strong> <span>details</span>`;
+  btn.addEventListener("click", () => {
+    const panel = item.querySelector(".content");
+    const isOpen = panel.style.maxHeight;
+    document.querySelectorAll(".content").forEach(c => { c.style.maxHeight = null; c.classList.remove("open"); });
+    if (!isOpen) {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.classList.add("open");
+    }
+  });
+
+  const panel = document.createElement("div");
+  panel.className = "content";
+  const ul = document.createElement("ul");
+  section.items.forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    ul.appendChild(li);
+  });
+  panel.appendChild(ul);
+
+  item.appendChild(btn);
+  item.appendChild(panel);
+  acc.appendChild(item);
+});
+</script>
+</body>
+</html>

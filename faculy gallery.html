@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Faculty Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #1a5fb4 0%, #1c71d8 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .faculty-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .faculty-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faculty-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid #1c71d8;
+        }
+        
+        .faculty-info {
+            padding: 20px;
+        }
+        
+        .faculty-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a5fb4;
+        }
+        
+        .faculty-position {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .department {
+            display: inline-block;
+            background: #e7f1ff;
+            color: #1c71d8;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+        }
+        
+        #search {
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .faculty-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .faculty-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Faculty Gallery</h1>
+        <p class="subtitle">Meet our distinguished faculty members</p>
+    </header>
+    
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search faculty by name or department...">
+    </div>
+    
+    <div class="faculty-gallery">
+        <!-- Faculty cards will be generated here -->
+    </div>
+    
+    <footer>
+        <p>© 2023 University Faculty Directory. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Faculty data with names and positions extracted from image URLs
+        const facultyData = [
+            { 
+                img: "https://res.cloudinary.com/dyda80tvb/image/upload/v1755838426/27_frj5eg.jpg", 
+                name: "Dr.v.sekar", 
+                position: "Dean", 
+                department: "Electrical and Electronics Engineering", 
+            },
+            { 
+                img: "https://res.cloudinary.com/dyda80tvb/image/upload/v1755838704/31_wiyk8a.jpg", 
+                name: "Dr.N.Shanmugapriya", 
+                position: "Associate Dean", 
+                department: "computer science and Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/dyda80tvb/image/upload/v1755838813/43_m9xtww.jpg", 
+                name: "Dr.s.padmapriya", 
+                position: "Associate professor", 
+                department: "Computer science Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017581/mani_izmfay.jpg", 
+                name: "Mr.T.Mani", 
+                position: "Associate Professor ", 
+                department: "Mathematics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017582/Dr_K_Balamurugan_ew6l9d.jpg", 
+                name: "Dr. K. Balamurugan", 
+                position: "Associate professor", 
+                department: "Mathematics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017581/Dr-Geetha-P1_xump7j.jpg", 
+                name: "Dr. Geetha P", 
+                position: "Assistant Professor", 
+                department: "Electronis and communication Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017581/Anitha-Parthasarathy_vt76ay.jpg", 
+                name: "Dr. P. Anitha", 
+                position: "Associate professor", 
+                department: "Computer Science and Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017581/Mrs_M_JAYASRI_acnsvq.jpg", 
+                name: "Mrs. M. Jayasri", 
+                position: "Associate professor", 
+                department: "Computer science and Engineering" 
+            },
+            { 
+                img:  "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017566/Ms__C__Aarthy_wrrv9m.jpg",
+                name: "Ms. C. Aarthy", 
+                position: "Assistant Professor _junior", 
+                department: "CSE (AIDS)" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017567/Dr_G_M_Balamurugan11_ptk2yh.jpg", 
+                name: "Dr. G.M. Balamurugan", 
+                position: "Professor of Mechanical Engineering", 
+                department: "Mechanical Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017567/sob_vmdqsm.jpg", 
+                name: "Dr.R.Shobia", 
+                position: "Assistant professor", 
+                department: "English" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017566/Mrs_S__Lavanya_jpfkme.jpg", 
+                name: "Mrs. S. Lavanya", 
+                position: "Assistant professor_junior", 
+                department: "Computer Science and Engineering" 
+            },
+            { 
+          
+                img:"https://res.cloudinary.com/drz22hsjz/image/upload/v1756017566/Mrs__M__Kanimozhi_gxwgpt.jpg",
+                name: "Mrs. M. Kanimozhi", 
+                position: "Assistant professor_junior", 
+                department: "Computer Science and Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017566/ANU_drzwfk.jpg", 
+                name: "Dr. M. Anu", 
+                position: "Assistant professor", 
+                department: "Chemistry" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017566/Mrs__D__Suvetha_b0f3l3.jpg", 
+                name: "Mrs. D. Suvetha", 
+                position: "Associate profeesor_junior", 
+                department: "Mathematics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017566/Mrs__G__Mahalakshmi_ykf2xh.jpg", 
+                name: "Mrs. G. Mahalakshmi", 
+                position: "Assistant Professor _Junior", 
+                department: "artificial intelligence and data science" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017565/Mrs__P_V__Indira1_oucihy.jpg", 
+                name: "Mrs. P.V. Indira", 
+                position: "Assistant professor_junior", 
+                department: "Artificial intelligence and data science" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017566/TAMILSELVI_PHOTO1_cf8axq.jpg", 
+                name: "Dr. Tamilselvi", 
+                position: "Associate Professor_junior", 
+                department: "Computer science and Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017565/Dr-K-Karthika_rduxc3.jpg", 
+                name: "Dr. K. Karthika", 
+                position: "Assistant Professor", 
+                department: "Physics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017565/Dr_A_Kalaiyarasi_mhwrle.jpg", 
+                name: "Dr. A. Kalaiyarasi", 
+                position: " Assistant Professor ", 
+                department: "Chemistry" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017553/Dr-C-Priya_rls6z2.jpg", 
+                name: "Dr. C. Priya", 
+                position: "Associate Professor ", 
+                department: "English" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017553/Dr__Maruthanila-VL_dk01l7.jpg", 
+                name: "Dr. Maruthanila V.L.", 
+                position: "Assistant Professor", 
+                department: "Biotech" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017552/Dr_A_X_Amal-Rebin_u2n11k.jpg", 
+                name: "Dr. A.X. Amal-Rebin", 
+                position: " Associate Professor", 
+                department: "Mechanical Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017553/Indirajith-K1_h9ihfw.jpg", 
+                name: "Dr. Indirajith K", 
+                position: "Associate Professor", 
+                department: "Electrical and Electronics Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017552/Sathiya_wjwkjn.jpg", 
+                name: "Dr. Sathiyapriya", 
+                position: "Assistant Professor", 
+                department: "Mathematics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017552/Dr_N_Kumaran_ks39vc.jpg", 
+                name: "Dr. N. Kumaran", 
+                position: " Assistant Professor", 
+                department: "Computer Science and Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017552/lakshmi_kshp7q.jpg", 
+                name: "Dr. Lakshmi", 
+                position: "Associate Professor", 
+                department: "Electrical and Electronics Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017552/Dr_N_Shankar_kvtbn3.jpg", 
+                name: "Dr. N. Shankar", 
+                position: " Associate Professor ", 
+                department: "Biomedical Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017552/Nagaraj-MCA_a9kroz.jpg", 
+                name: "Dr.VR.Nagarajan", 
+                position: "Associate professor", 
+                department: "Master of computer Applications",
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017542/Dr_Sundara-Rajulu1_z3k4pb.jpg", 
+                name: "Dr. Sundara Rajulu Navaneethakrishnan", 
+                position: "Professor ", 
+                department: " Computer science English" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017536/Dr_G_Karthy_Associate_Professor_ECE_uckll5.jpg", 
+                name: "Dr. G. Karthy", 
+                position: "Associate Professor of ECE", 
+                department: "Electronics and Communication and Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017536/Rajini_wfipae.jpg", 
+                name: "Dr. Rajinikanth", 
+                position: "Associate professor", 
+                department: "Mathematics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017535/SHA_b104jv.jpg", 
+                name: "Dr. Sharad porwal", 
+                position: "Associate professor", 
+                department: "Chemistry" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017535/Balamurugan_s0rsev.jpg", 
+                name: "Dr. Balamurugan", 
+                position: "Associate professor", 
+                department: "Physics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017534/v_selvi1_nr1xia.jpg", 
+                name: "Dr. V. Thamil Selvi", 
+                position: "Associate Professor", 
+                department: "Engish" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017534/Dr_-Elancheran-Ramakrishnan_rbfxjz.jpg", 
+                name: "Dr. Elancheran Ramakrishnan", 
+                position: "Assistant Professor", 
+                department: "Chemistry" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017534/Krsihnamoorthy_tv3psh.jpg", 
+                name: "Dr. Krishnamoorthy", 
+                position: "Associate professor", 
+                department: "Chemistry" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017533/Dr_R_Vijayalakshmi_rbtsmm.jpg", 
+                name: "Dr. R. Vijayalakshmi", 
+                position: "Associate Professor", 
+                department: "English" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017532/Dr-A-Sirajunnisa_zl83rb.jpg", 
+                name: "Dr. A. Sirajunnisa", 
+                position: "Professor ", 
+                department: "chemistry" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017532/Meganathan_fryoxd.jpg", 
+                name: "Dr.R. Meganathan", 
+                position: "Professor ", 
+                department: "Mathematics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017531/Dr_Sasikumar_G_ywgoll.jpg", 
+                name: "Dr. Sasikumar G", 
+                position: "Associate Dean", 
+                department: "compuer science and engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017531/Revathi_-SET1_pzg0un.jpg", 
+                name: "Dr.B. Revathi", 
+                position:  "Professor", 
+                department: "Electronics and communication Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017531/Dr_Suresh1_rtgkgo.jpg", 
+                name: "Dr. Suresh C", 
+                position: "Professor ", 
+                department: "EEE" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017531/Dr__V__Raju2_jllkni.jpg", 
+                name: "Dr. V. Raju", 
+                position: "Associate Dean", 
+                department: "Master of computer Application information technology" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017530/1_am1agd.jpg", 
+                name: "Dr.B. Shanmugham", 
+                position: "Professor", 
+                department: "Electonics and communication Engineering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017531/Dr__S__Selvakumar1_qgse3q.jpg", 
+                name: "Dr. S. Selvakumar", 
+                position: " Professor ", 
+                department: "Computer Science Engoneering" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017531/Dr_E_Rameshkumar1_iahqd0.jpg", 
+                name: "Dr. E. Rameshkumar", 
+                position: "Professor of Mathematics", 
+                department: "Mathematics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017529/mercy_djkunr.jpg", 
+                name: "Dr. Mercy Geraldine", 
+                position: "Professor ", 
+                department: "Computer Science and technology" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017529/John1_dprbtb.jpg", 
+                name: "Dr. John Ethilton", 
+                position: "Professor", 
+                department: "Physics" 
+            },
+            { 
+                img: "https://res.cloudinary.com/drz22hsjz/image/upload/v1756017529/Dr-B-Ramesh_qvmqcj.jpg", 
+                name: "Dr. B. Ramesh", 
+                position: "Associate Dean", 
+                department: "Mechanical Engineering" 
+            }
+        ];
+
+        // Function to generate faculty cards
+        function generateFacultyCards(faculty) {
+            const gallery = document.querySelector('.faculty-gallery');
+            gallery.innerHTML = '';
+            
+            faculty.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'faculty-card';
+                
+                card.innerHTML = `
+                    <img src="${member.img}" alt="${member.name}" class="faculty-img">
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">${member.name}</h3>
+                        <p class="faculty-position">${member.position}</p>
+                        <span class="department">${member.department}</span>
+                    </div>
+                `;
+                
+                gallery.appendChild(card);
+            });
+        }
+        
+        // Search functionality
+        document.getElementById('search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            const filteredFaculty = facultyData.filter(member => 
+                member.name.toLowerCase().includes(searchTerm) || 
+                member.position.toLowerCase().includes(searchTerm) ||
+                member.department.toLowerCase().includes(searchTerm)
+            );
+            
+            generateFacultyCards(filteredFaculty);
+        });
+        
+        // Initialize the gallery
+        generateFacultyCards(facultyData);
+    </script>
+</body>
+</html>

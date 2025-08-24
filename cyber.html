@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSU Trichy – B.Tech Cyber Security Syllabus (Reg 2021)</title>
+  <style>
+    :root { --bg:#f9f9fa; --card:#121a2a; --text:#afb4c1; --muted:#a9b3c7; --accent:#6aa1ff; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Segoe UI,Roboto,Arial}
+    .wrap{max-width:900px;margin:40px auto;padding:0 16px}
+    h1{font-size:28px;margin:0 0 12px}
+    p.sub{color:var(--muted);margin:0 0 24px}
+    .acc{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .item + .item{border-top:1px solid #1f2a44}
+    .btn{width:100%;text-align:left;padding:18px 20px;background:var(--card);color:var(--text);border:none;cursor:pointer;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+    .btn:hover{background:#17233a}
+    .btn span{font-size:14px;color:var(--muted)}
+    .content{max-height:0;overflow:hidden;transition:max-height .35s ease;background:#0f182b;padding:0 20px}
+    .content.open{padding:16px 20px}
+    ul{margin:0;padding:0 0 8px 18px}
+    li{margin:6px 0}
+    .note{margin-top:16px;color:#b3c2dc}
+    footer{margin:24px 0 60px;color:#6d7c97;font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>DSU Trichy – B.Tech Cyber Security</h1>
+    <p class="sub">Regulation 2021 • School of Engineering & Technology • Semesters I–VIII</p>
+
+    <section class="acc" id="accordion"></section>
+    <p class="note">Source: Official DSU “Cyber Security Curriculum” PDF (Reg. 2021). Check the university site for updates.</p>
+    <footer>© for personal academic use</footer>
+  </main>
+
+<script>
+const data = [
+  { sem: "Semester I", items: [
+    "Communicative English (HS)","Engineering Mathematics – I (BS)","Engineering Physics (BS)",
+    "Engineering Chemistry (BS)","Problem Solving using Python (ES)","Engineering Graphics (ES)",
+    "Physics & Chemistry Lab (BS)","Python Programming Lab (ES)","Yoga (NC)"
+  ], credits: "18" },
+  { sem: "Semester II", items: [
+    "Technical Communication (HS)","Engineering Mathematics – II (BS)","Digital Principles (ES)",
+    "Programming in C (PC)","Java Programming (PC)","Basic Electrical & Electronics (ES)",
+    "C Programming Lab (PC)","Java Programming Lab (PC)","Electronics Lab (ES)","NSS (NC)"
+  ], credits: "23" },
+  { sem: "Semester III", items: [
+    "Discrete Mathematics (BS)","Data Structures (PC)","Computer Organization & Architecture (PC)",
+    "Database Management Systems (PC)","Operating Systems (PC)","Professional Communication (HS)",
+    "Data Structures Lab (PC)","DBMS Lab (PC)","OS Lab (PC)","Environmental Science (NC)"
+  ], credits: "23" },
+  { sem: "Semester IV", items: [
+    "Probability & Statistics (BS)","Design & Analysis of Algorithms (PC)","Computer Networks (PC)",
+    "Foundations of Cyber Security (PC)","Cryptography & Applications (PC)","Microprocessors & Microcontrollers (PC)",
+    "Networks Lab (PC)","Algorithms Lab (PC)","MP & MC Lab (PC)","Soft Skills (HS)"
+  ], credits: "23" },
+  { sem: "Semester V", items: [
+    "Web Application Security (PC)","Operating System Hardening (PC)","Network Security (PC)",
+    "Cyber Forensics (PC)","Professional Elective I (PE)","Open Elective I (OE)",
+    "Network Security Lab (PC)","Cyber Forensics Lab (PC)","Professional Communication Lab (HS)"
+  ], credits: "20" },
+  { sem: "Semester VI", items: [
+    "Cloud Security (PC)","Ethical Hacking & Penetration Testing (PC)","IoT & Cyber Security (PC)",
+    "Professional Elective II (PE)","Open Elective II (OE)","Cloud & IoT Security Lab (PC)",
+    "Ethical Hacking Lab (PC)","Mini Project (EEC)"
+  ], credits: "17" },
+  { sem: "Semester VII", items: [
+    "Blockchain & Security (PC)","Cyber Law & Ethics (HS)","Malware Analysis (PC)",
+    "Professional Elective III (PE)","Professional Elective IV (PE)","Open Elective III (OE)",
+    "Malware Analysis Lab (PC)","Internship / Publication (EEC)"
+  ], credits: "18" },
+  { sem: "Semester VIII", items: [
+    "Professional Elective V (PE)","Incident Response & Digital Forensics (PC)","Major Project (EEC)"
+  ], credits: "18" },
+];
+
+const acc = document.getElementById("accordion");
+data.forEach((s, i) => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.innerHTML = `<strong>${s.sem}</strong> <span>${s.credits} credits</span>`;
+  btn.addEventListener("click", () => {
+    const p = item.querySelector(".content");
+    const open = p.style.maxHeight;
+    document.querySelectorAll(".content").forEach(el => { el.style.maxHeight = null; el.classList.remove("open"); });
+    if (!open) { p.style.maxHeight = p.scrollHeight + "px"; p.classList.add("open"); }
+  });
+
+  const panel = document.createElement("div");
+  panel.className = "content";
+  const ul = document.createElement("ul");
+  s.items.forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+  panel.appendChild(ul);
+
+  item.appendChild(btn);
+  item.appendChild(panel);
+  acc.appendChild(item);
+});
+</script>
+</body>
+</html>

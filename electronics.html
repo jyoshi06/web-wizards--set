@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSU Trichy – B.Tech ECE Syllabus (Reg 2021)</title>
+  <style>
+    :root { --bg:#f9f9fa; --card:#121a2a; --text:#d2d6e3; --muted:#a9b3c7; --accent:#6aa1ff; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,Segoe UI,Roboto,Arial}
+    .wrap{max-width:900px;margin:40px auto;padding:0 16px}
+    h1{font-size:28px;margin:0 0 12px}
+    p.sub{color:var(--muted);margin:0 0 24px}
+    .acc{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .item + .item{border-top:1px solid #1f2a44}
+    .btn{width:100%;text-align:left;padding:18px 20px;background:var(--card);color:var(--text);border:none;cursor:pointer;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+    .btn:hover{background:#17233a}
+    .btn span{font-size:14px;color:var(--muted)}
+    .content{max-height:0;overflow:hidden;transition:max-height .35s ease;background:#0f182b;padding:0 20px}
+    .content.open{padding:16px 20px}
+    ul{margin:0;padding:0 0 8px 18px}
+    li{margin:6px 0}
+    .note{margin-top:16px;color:#b3c2dc}
+    footer{margin:24px 0 60px;color:#6d7c97;font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>DSU Trichy – B.Tech Electronics & Communication Engineering</h1>
+    <p class="sub">Regulation 2021 • School of Engineering & Technology • Semesters I–VIII</p>
+
+    <section class="acc" id="accordion"></section>
+    <p class="note">Source: Official DSU “ECE Curriculum” PDF (Reg. 2021). Please check university website for updates.</p>
+    <footer>© for academic use</footer>
+  </main>
+
+<script>
+const data = [
+  { sem: "Semester I", items: [
+    "Communicative English (HS)","Engineering Mathematics – I (BS)","Engineering Physics (BS)",
+    "Engineering Chemistry (BS)","Problem Solving using Python (ES)","Engineering Graphics (ES)",
+    "Physics & Chemistry Lab (BS)","Python Programming Lab (ES)","Yoga (NC)"
+  ], credits: "18" },
+  { sem: "Semester II", items: [
+    "Technical Communication (HS)","Engineering Mathematics – II (BS)","Basic Electrical & Electronics Engineering (ES)",
+    "Programming in C (ES)","Engineering Mechanics (ES)","Digital Logic Circuits (ES)",
+    "C Programming Lab (ES)","Electronics Lab (ES)","Engineering Practices Lab (ES)","NSS (NC)"
+  ], credits: "23" },
+  { sem: "Semester III", items: [
+    "Transforms & Complex Analysis (BS)","Electronic Circuits – I (PC)","Digital System Design (PC)",
+    "Signals & Systems (PC)","Electromagnetic Fields (PC)","Environmental Science (MC)",
+    "Electronics Circuits Lab I (PC)","Digital Systems Lab (PC)","Signals & Systems Lab (PC)"
+  ], credits: "22" },
+  { sem: "Semester IV", items: [
+    "Probability & Random Processes (BS)","Electronic Circuits – II (PC)","Linear Integrated Circuits (PC)",
+    "Communication Theory (PC)","Control Systems (PC)","Microprocessors & Microcontrollers (PC)",
+    "Electronics Circuits Lab II (PC)","LIC Lab (PC)","Communication Lab I (PC)"
+  ], credits: "23" },
+  { sem: "Semester V", items: [
+    "Digital Communication (PC)","Antennas & Wave Propagation (PC)","Computer Networks (PC)",
+    "Professional Elective I (PE)","Open Elective I (OE)","Digital Communication Lab (PC)",
+    "Networks Lab (PC)","Mini Project I (EEC)"
+  ], credits: "20" },
+  { sem: "Semester VI", items: [
+    "VLSI Design (PC)","Wireless Communication (PC)","Digital Signal Processing (PC)",
+    "Professional Elective II (PE)","Open Elective II (OE)","VLSI Design Lab (PC)",
+    "DSP Lab (PC)","Mini Project II (EEC)"
+  ], credits: "19" },
+  { sem: "Semester VII", items: [
+    "Optical Communication (PC)","Microwave Engineering (PC)","Professional Elective III (PE)",
+    "Professional Elective IV (PE)","Open Elective III (OE)","Project Phase I (EEC)",
+    "Seminar (EEC)"
+  ], credits: "18" },
+  { sem: "Semester VIII", items: [
+    "Satellite Communication (PC)","Professional Elective V (PE)","Major Project (EEC)"
+  ], credits: "18" },
+];
+
+const acc = document.getElementById("accordion");
+data.forEach((s, i) => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.innerHTML = `<strong>${s.sem}</strong> <span>${s.credits} credits</span>`;
+  btn.addEventListener("click", () => {
+    const p = item.querySelector(".content");
+    const open = p.style.maxHeight;
+    document.querySelectorAll(".content").forEach(el => { el.style.maxHeight = null; el.classList.remove("open"); });
+    if (!open) { p.style.maxHeight = p.scrollHeight + "px"; p.classList.add("open"); }
+  });
+
+  const panel = document.createElement("div");
+  panel.className = "content";
+  const ul = document.createElement("ul");
+  s.items.forEach(t => { const li = document.createElement("li"); li.textContent = t; ul.appendChild(li); });
+  panel.appendChild(ul);
+
+  item.appendChild(btn);
+  item.appendChild(panel);
+  acc.appendChild(item);
+});
+</script>
+</body>
+</html>

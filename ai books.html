@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSU Trichy – Artificial Intelligence Library Details</title>
+  <style>
+    :root { --bg:#f7f9fc; --card:#16213e; --text:#e6ecf5; --muted:#aab8d4; --accent:#69b1ff; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,Segoe UI,Roboto,Arial}
+    .wrap{max-width:900px;margin:40px auto;padding:0 16px}
+    h1{font-size:28px;margin:0 0 12px}
+    p.sub{color:var(--muted);margin:0 0 24px}
+    .acc{border-radius:16px;overflow:hidden;box-shadow:0 8px 26px rgba(0,0,0,.35)}
+    .item + .item{border-top:1px solid #24324f}
+    .btn{width:100%;text-align:left;padding:18px 20px;background:var(--card);color:var(--text);border:none;cursor:pointer;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+    .btn:hover{background:#1e2d52}
+    .btn span{font-size:14px;color:var(--muted)}
+    .content{max-height:0;overflow:hidden;transition:max-height .35s ease;background:#0f1b36;padding:0 20px}
+    .content.open{padding:16px 20px}
+    ul{margin:0;padding:0 0 10px 18px}
+    li{margin:6px 0}
+    .tag{display:inline-block;font-size:12px;border:1px solid #2b3d6b;padding:2px 8px;border-radius:999px;color:#cfe1ff;margin-left:8px}
+    .note{margin-top:16px;color:#b3c2dc}
+    footer{margin:28px 0 60px;color:#74809c;font-size:13px}
+    a{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Artificial Intelligence Library – DSU Trichy (Samayapuram)</h1>
+    <p class="sub">Quick reference for resources, access, and services • Department of AI/AI&DS • Regulation 2021+</p>
+
+    <section class="acc" id="accordion"></section>
+    <p class="note">Note: Entries below are example placeholders. Replace with official DSU details when available.</p>
+    <footer>© for academic use</footer>
+  </main>
+
+<script>
+const data = [
+  { title: "Overview", items: [
+    "Location: Central Library, Samayapuram Campus – AI & Data Science Section (1st Floor)",
+    "Audience: UG (AI&DS, CSE-AI), PG, Research Scholars, Faculty",
+    "Focus Areas: AI/ML, Data Science, Deep Learning, Computer Vision, NLP, Cybersecurity & Ethics",
+  ]},
+  { title: "Timings", items: [
+    "Mon–Fri: 9:00 AM – 6:00 PM",
+    "Sat: 9:00 AM – 1:00 PM",
+    "Sun/Holidays: Closed",
+    "Circulation Desk closes 15 mins before library closing",
+  ]},
+  { title: "Contact", items: [
+    "Librarian (AI Section): Name / Desk",
+    "Email: ai-library@dsu.ac.in (sample)",
+    "Phone: +91-00000-00000 (sample)",
+    "Library Website/OPAC: campus portal → Library → OPAC",
+  ]},
+  { title: "Physical Collection (AI)", items: [
+    "Textbooks: ~300+ core AI/ML titles (sample)",
+    "Reference: Encyclopedias, Handbooks, Standards",
+    "Project Reports & Theses (Dept Archive)",
+    "Magazines: Communications of the ACM, IEEE Spectrum (print)",
+  ]},
+  { title: "E-Books & Monographs", items: [
+    "O’Reilly for Higher Education (AI/DS/Cloud/DevOps)",
+    "SpringerLink eBooks: AI, Data Science, Pattern Recognition",
+    "Elsevier ScienceDirect eBooks (Computing/AI)",
+    "McGraw-Hill/ProQuest eBook Central (institutional access)",
+  ]},
+  { title: "Journals & Proceedings", items: [
+    "IEEE Transactions (e.g., TPAMI, TNNLS) – online access",
+    "ACM Journals & Communications of the ACM",
+    "Elsevier/ScienceDirect AI journals",
+    "Springer AI & ML journals",
+    "Access via campus IP/VPN; publisher embargoes may apply",
+  ]},
+  { title: "Databases & Portals", items: [
+    "IEEE Xplore Digital Library",
+    "ACM Digital Library",
+    "SpringerLink / Nature",
+    "ScienceDirect",
+    "Scopus / Web of Science (research discovery)",
+    "arXiv (open access preprints)",
+    "NDL (National Digital Library of India)",
+  ]},
+  { title: "Software & Compute", items: [
+    "Campus-licensed: MATLAB (incl. Toolboxes), LabVIEW (if applicable)",
+    "Open-source: Python (NumPy, Pandas, scikit-learn), PyTorch, TensorFlow, JAX",
+    "JupyterHub / Google Colab (edu accounts) – for coursework",
+    "GPU Lab: Dept. AI Lab – CUDA-enabled workstations (booking required)",
+  ]},
+  { title: "Services", items: [
+    "Reference & Research Help (subject librarians/on-call)",
+    "Literature Search & Bibliography (Mendeley/Zotero training)",
+    "Plagiarism Check (Turnitin/URKUND – faculty-mediated)",
+    "Interlibrary Loan / Document Delivery (partner institutes)",
+    "Orientation & Workshops: AI tools, Data Management, Reproducible Research",
+  ]},
+  { title: "Borrowing & Access", items: [
+    "UG: 3–5 books for 14 days; PG: 5–7 books for 21 days; Faculty: 10+ (sample policy)",
+    "Renewals: 2 online renewals unless on hold",
+    "Overdues/Fines: As per university policy",
+    "Remote access: SSO/VPN to reach subscribed e-resources",
+  ]},
+  { title: "Study Spaces & Facilities", items: [
+    "Silent Reading Hall, Group Study Rooms (2–8 seats) – pre-book",
+    "AI Corner: Quick-ref shelves + new arrivals",
+    "Printing/Scanning: Self-service kiosk (pay-per-page)",
+    "Assistive Tech: Screen readers, large-print workstation",
+  ]},
+  { title: "Curation: Core AI Booklist", items: [
+    "Goodfellow, Bengio & Courville – Deep Learning (MIT Press)",
+    "Bishop – Pattern Recognition and ML (Springer)",
+    "Murphy – Probabilistic ML (MIT Press) / ML: A Probabilistic Perspective",
+    "Russell & Norvig – Artificial Intelligence: A Modern Approach (Pearson)",
+    "Koller & Friedman – Probabilistic Graphical Models (MIT Press)",
+    "Manning, Raghavan & Schütze – IR (Cambridge)",
+  ]},
+  { title: "Curation: Courses & MOOCs", items: [
+    "CS229 Machine Learning (Stanford) – notes/videos",
+    "DeepLearning.AI specializations (Coursera)",
+    "fast.ai Practical Deep Learning",
+    "MIT 6.S191 / 6.036 resources",
+    "IIT/NPTEL AI & Data Science courses",
+  ]},
+  { title: "Ethics & Policy", items: [
+    "Academic Integrity & Responsible AI Use guidelines",
+    "Data Privacy: handling of datasets, IRB/ethics clearance for human data",
+    "Proper citation & licensing for datasets/code",
+  ]},
+  { title: "New Arrivals & Alerts", items: [
+    "Monthly bulletin: new books/journals/databases",
+    "Email alerts/RSS from publishers & library",
+    "Faculty/student recommendation form for purchases",
+  ]},
+  { title: "How to Cite & Write", items: [
+    "Citation styles: IEEE/ACM/APA",
+    "Tools: Zotero, Mendeley, Overleaf (LaTeX templates)",
+    "Thesis/report templates available via department portal",
+  ]},
+  { title: "FAQs", items: [
+    "How to get remote access? → Use campus SSO/VPN",
+    "How to suggest a book? → Purchase Recommendation form",
+    "Where to find datasets? → AI Datasets folder / Kaggle / Data.gov.in",
+  ]},
+];
+
+const acc = document.getElementById("accordion");
+data.forEach((s) => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.innerHTML = `<strong>${s.title}</strong> <span>details</span>`;
+  btn.addEventListener("click", () => {
+    const p = item.querySelector(".content");
+    const open = p.style.maxHeight;
+    document.querySelectorAll(".content").forEach(el => { el.style.maxHeight = null; el.classList.remove("open"); });
+    if (!open) { p.style.maxHeight = p.scrollHeight + "px"; p.classList.add("open"); }
+  });
+
+  const panel = document.createElement("div");
+  panel.className = "content";
+  const ul = document.createElement("ul");
+  s.items.forEach(t => {
+    const li = document.createElement("li");
+    li.textContent = t;
+    ul.appendChild(li);
+  });
+  panel.appendChild(ul);
+
+  item.appendChild(btn);
+  item.appendChild(panel);
+  acc.appendChild(item);
+});
+</script>
+</body>
+</html>

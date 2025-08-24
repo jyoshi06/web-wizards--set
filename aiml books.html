@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DSU Trichy – Mechanical (AI & ML) Library</title>
+  <style>
+    :root { --bg:#f8fafc; --card:#1e293b; --text:#f1f5f9; --muted:#94a3b8; --accent:#0ea5e9; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font:16px/1.6 system-ui,Segoe UI,Roboto,Arial;
+    }
+    .wrap {
+      max-width:900px;
+      margin:40px auto;
+      padding:0 16px;
+    }
+    h1 {
+      font-size:28px;
+      margin:0 0 12px;
+      color:#0f172a;
+    }
+    p.sub {
+      color:#334155;
+      margin:0 0 24px;
+    }
+    .acc {
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+    .item + .item { border-top:1px solid #334155; }
+    .btn {
+      width:100%;
+      text-align:left;
+      padding:18px 20px;
+      background:var(--card);
+      color:var(--text);
+      border:none;
+      cursor:pointer;
+      font-size:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .btn:hover { background:#334155; }
+    .btn span { font-size:14px; color:var(--muted); }
+    .content {
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+      background:#0f172a;
+      padding:0 20px;
+    }
+    .content.open { padding:16px 20px; }
+    ul { margin:0; padding:0 0 10px 18px; }
+    li { margin:6px 0; }
+    .note {
+      margin-top:16px;
+      color:#64748b;
+    }
+    footer {
+      margin:28px 0 60px;
+      color:#94a3b8;
+      font-size:13px;
+    }
+    a { color:var(--accent); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Mechanical (AI & ML) Library – DSU Trichy</h1>
+    <p class="sub">Department of Mechanical Engineering – Artificial Intelligence & Machine Learning • Samayapuram Campus</p>
+
+    <section class="acc" id="accordion"></section>
+    <p class="note">Note: This information is academic in nature. Please confirm with DSU official sources.</p>
+    <footer>© DSU Trichy – For Academic Use</footer>
+  </main>
+
+<script>
+const data = [
+  { title: "Overview", items: [
+    "Library Location: Engineering Block – Mechanical (AI & ML) Section",
+    "Users: UG, PG, Research Scholars, Faculty of Mechanical & AI-ML",
+    "Specialization: Mechanical Systems, AI-driven Design, ML for Robotics, Smart Manufacturing",
+  ]},
+  { title: "Timings", items: [
+    "Monday – Friday: 9:00 AM – 6:00 PM",
+    "Saturday: 9:00 AM – 1:00 PM",
+    "Closed on Sundays & Public Holidays",
+  ]},
+  { title: "Contact", items: [
+    "Section Librarian: Mechanical (AI & ML) Library",
+    "Email: mech_ai_ml_library@dsu.ac.in",
+    "Phone: +91-431-0000000",
+  ]},
+  { title: "Print Collection", items: [
+    "Core Textbooks: AI in Mechanical, Robotics, CAD/CAE with ML (~2500+ volumes)",
+    "Reference Books: Smart Manufacturing, Neural Networks for Engineering, Data Analytics in Mech",
+    "Research Theses & Project Reports",
+    "Lab Manuals for AI-ML Labs",
+  ]},
+  { title: "E-Resources", items: [
+    "IEEE Xplore – AI/ML in Mechanical Engineering",
+    "SpringerLink – Mechatronics & Smart Systems",
+    "ScienceDirect – AI-driven Manufacturing",
+    "NPTEL Courses – AI in Engineering & Robotics",
+    "Elsevier AI in Engineering Collection",
+  ]},
+  { title: "Journals", items: [
+    "Journal of Intelligent Manufacturing",
+    "IEEE Transactions on Industrial Informatics",
+    "International Journal of Machine Learning in Engineering",
+    "Journal of AI & Mechanical Systems",
+  ]},
+  { title: "Facilities & Labs", items: [
+    "Digital Library with AI Simulation Tools",
+    "Mechanical Systems Lab with AI Integration",
+    "AI & ML Lab – TensorFlow, PyTorch, MATLAB",
+    "Robotics & Smart Factory Simulators",
+  ]},
+  { title: "Services", items: [
+    "Book Lending & Reference Assistance",
+    "E-Journal & Database Access",
+    "Workshops on AI/ML Applications in Mechanical",
+    "Research Guidance & Plagiarism Checking",
+  ]},
+  { title: "Borrowing Rules", items: [
+    "UG Students: 3 books for 14 days",
+    "PG Students: 5 books for 21 days",
+    "Faculty: 10 books per semester",
+    "Overdue fines apply",
+  ]},
+  { title: "Important Booklist", items: [
+    "S.R. Deb – Robotics and AI in Mechanical Engineering",
+    "Ian Goodfellow – Deep Learning",
+    "Sutton & Barto – Reinforcement Learning",
+    "Rajeev Alur – Cyber-Physical Systems",
+    "Bishop – Pattern Recognition and Machine Learning",
+  ]},
+  { title: "FAQs", items: [
+    "Does the library provide AI tools for mechanical projects? → Yes",
+    "Are robotics and smart factory simulators available? → Yes",
+    "Is access to IEEE/Elsevier included? → Yes",
+  ]},
+];
+
+const acc = document.getElementById("accordion");
+data.forEach((section) => {
+  const item = document.createElement("div");
+  item.className = "item";
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.innerHTML = `<strong>${section.title}</strong> <span>details</span>`;
+  btn.addEventListener("click", () => {
+    const panel = item.querySelector(".content");
+    const isOpen = panel.style.maxHeight;
+    document.querySelectorAll(".content").forEach(c => { c.style.maxHeight = null; c.classList.remove("open"); });
+    if (!isOpen) {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.classList.add("open");
+    }
+  });
+
+  const panel = document.createElement("div");
+  panel.className = "content";
+  const ul = document.createElement("ul");
+  section.items.forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = text;
+    ul.appendChild(li);
+  });
+  panel.appendChild(ul);
+
+  item.appendChild(btn);
+  item.appendChild(panel);
+  acc.appendChild(item);
+});
+</script>
+</body>
+</html>
