@@ -41,14 +41,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 50px 10%;
-            max-width: 2000px;
+            padding: 15px 5%;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
         .logo {
             display: flex;
-            align-items: left;
+            align-items: center;
         }
         
         .logo img {
@@ -427,6 +427,147 @@
             font-weight: 500;
         }
         
+        /* Video Slider Section (From Code 2) */
+        .video-gallery-section {
+            padding: 80px 5%;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .video-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        .video-container h2 {
+            color: #1a237e;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .video-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            color: #666;
+        }
+        
+        .video-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-slides-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .video-slide video {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+            height: auto;
+            max-height: 506px;
+        }
+        
+        .video-slide-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: left;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            color: white;
+        }
+        
+        .video-slide-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .video-navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .video-nav-btn {
+            background: rgba(26, 35, 126, 0.2);
+            border: none;
+            color: #1a237e;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-nav-btn:hover {
+            background: rgba(26, 35, 126, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .video-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .video-dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(26, 35, 126, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .video-dot.active {
+            background: #1a237e;
+            transform: scale(1.2);
+        }
+        
+        .video-progress-bar {
+            height: 5px;
+            background: rgba(26, 35, 126, 0.2);
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 20px auto 0;
+        }
+        
+        .video-progress {
+            height: 100%;
+            background: #1a237e;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
         /* Engineering Clubs Section (Integrated from Code 1) */
         .clubs-section {
             padding: 80px 5%;
@@ -572,6 +713,7 @@
         .activities-list {
             list-style: none;
             margin-top: 15px;
+            color: #666;
         }
         
         .activities-list li {
@@ -835,6 +977,15 @@
             .schools-container {
                 grid-template-columns: 1fr;
             }
+            
+            .video-slide-info h3 {
+                font-size: 1.2rem;
+            }
+            
+            .video-nav-btn {
+                width: 40px;
+                height: 40px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -858,6 +1009,14 @@
             
             .slide-content p {
                 font-size: 12px;
+            }
+            
+            .video-slide-info {
+                padding: 15px;
+            }
+            
+            .video-slide-info h3 {
+                font-size: 1rem;
             }
         }
     </style>
@@ -883,14 +1042,10 @@
                     <li><a href="committe.html">COMMITTE</a></li>
                     <li><a href="fees.html">FEE STRUCTURE</a></li>
                     <li><a href="library details.html">LIBRARY DETAILS</a></li>
-                    <li><a href="set block.html">SET BLOCK 3D VISUALISATION</a></li>
-                    <li><a href="videos.html">CULTURALS</a></li>
                     <li><a href="academic.html">ACADEMIC CALENDAR</a></li>
                     <li><a href="naac.html">NAAC</a></li>
                     <li><a href="events.html">EVENTS</a></li>
                     <li><a href="map.html">LOCATION</a></li>
-                    
-                </ul>
             </nav>
             
             <div class="nav-buttons">
@@ -995,6 +1150,76 @@
             <div class="slider-info">
                 Slide <span id="current-slide">1</span> of 5
             </div>
+        </div>
+    </section>
+    
+    <!-- Video Gallery Section (From Code 2) -->
+    <section class="video-gallery-section">
+        <div class="section-header">
+            <h2>Culturals Video Gallery</h2>
+        </div>
+        
+        <div class="video-slider">
+            <div class="video-slides-container">
+                <div class="video-slide">
+                    <video controls>
+                        <source src="https://res.cloudinary.com/dyda80tvb/video/upload/v1756035526/VID-20250824-WA0050_u9kexm.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-slide-info">
+                        <h3>Pongal Celebrations</h3>
+                    </div>
+                </div>
+                <div class="video-slide">
+                    <video controls>
+                        <source src="https://res.cloudinary.com/dyda80tvb/video/upload/v1756035775/VID-20250824-WA0051_gekv3z.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-slide-info">
+                        <h3>Christmas Celebration</h3>
+                        
+                    </div>
+                </div>
+                <div class="video-slide">
+                    <video controls>
+                        <source src="https://res.cloudinary.com/dyda80tvb/video/upload/v1756035823/VID-20250824-WA0054_l6i8aw.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-slide-info">
+                        <h3>Anantara</h3>
+                    </div>
+                </div>
+                <div class="video-slide">
+                    <video controls>
+                        <source src="https://res.cloudinary.com/dyda80tvb/video/upload/v1756035897/VID-20250824-WA0055_gvgieq.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-slide-info">
+                        <h3>Independence day</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video-navigation">
+            <button class="video-nav-btn video-prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="video-nav-btn video-next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <div class="video-dots">
+            <div class="video-dot active"></div>
+            <div class="video-dot"></div>
+            <div class="video-dot"></div>
+            <div class="video-dot"></div>
+        </div>
+        
+        <div class="video-progress-bar">
+            <div class="video-progress"></div>
         </div>
     </section>
     
@@ -1309,15 +1534,12 @@
         <li>False or malicious complaints also carry consequences after proper inquiry.</li>
       </ul>
     </div>
-        
-    </section>  
-    </div> 
-    
-    <footer>
+  </section>
+  <footer>
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Institute of Technology</h3>
-                <p>Premier institute for engineering education and research established with a vision to create globally competent professionals.</p>
+                <p>Premier university for engineering education and research established with a vision to create globally competent professionals.</p>
                 <div class="footer-social">
                     <a href="https://www.facebook.com/share/16vAdhPrMU/"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://x.com/DSUTRY_OFFICIAL"><i class="fab fa-twitter"></i></a>
@@ -1341,7 +1563,7 @@
             
             <div class="footer-column">
                 <h3>Contact Information</h3>
-                <p><i class="fas fa-map-marker-alt"></i>NH-45,Trichy Chennai Trunk Road,samayapuram(near samayapuram toll plaza),Tiruchiralappalli-621112,Tamilnadu,India. </p>
+                <p><i class="fas fa-map-marker-alt"></i> NH-45,Trichy Chennai Trunk Road,Samayapuram(near samayapuram toll plaza),Tiruchirapalli-621112.Tamilnadu,India</p>
                 <p><i class="fas fa-phone"></i> +91 6384176766|+91 6384176769</p>
                 <p><i class="fas fa-envelope"></i> enquiry@dsuniversity.ac.in</p>
                 <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
@@ -1351,6 +1573,9 @@
         <div class="footer-bottom">
             <p>&copy; 2023 Dhanalakshmi Srinivasan University. All Rights Reserved.</p>
         </div>
+         
+    
+    
     </footer>
 
     <script>
@@ -1437,6 +1662,88 @@
                         detail.classList.remove('active');
                     });
                 });
+            });
+            
+            // Video Slider JavaScript (From Code 2)
+            const videoSlidesContainer = document.querySelector('.video-slides-container');
+            const videoSlides = document.querySelectorAll('.video-slide');
+            const videoPrevBtn = document.querySelector('.video-prev-btn');
+            const videoNextBtn = document.querySelector('.video-next-btn');
+            const videoDots = document.querySelectorAll('.video-dot');
+            const videoProgress = document.querySelector('.video-progress');
+            
+            let currentVideoSlide = 0;
+            const videoSlideCount = videoSlides.length;
+            
+            // Update video slides function
+            function updateVideoSlide() {
+                videoSlidesContainer.style.transform = `translateX(-${currentVideoSlide * 100}%)`;
+                
+                // Update dots
+                videoDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentVideoSlide);
+                });
+                
+                // Update progress bar
+                videoProgress.style.width = `${((currentVideoSlide + 1) / videoSlideCount) * 100}%`;
+                
+                // Pause all videos
+                document.querySelectorAll('.video-slide video').forEach(video => {
+                    video.pause();
+                });
+            }
+            
+            // Next video slide
+            videoNextBtn.addEventListener('click', () => {
+                currentVideoSlide = (currentVideoSlide + 1) % videoSlideCount;
+                updateVideoSlide();
+            });
+            
+            // Previous video slide
+            videoPrevBtn.addEventListener('click', () => {
+                currentVideoSlide = (currentVideoSlide - 1 + videoSlideCount) % videoSlideCount;
+                updateVideoSlide();
+            });
+            
+            // Dot navigation for video slider
+            videoDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentVideoSlide = index;
+                    updateVideoSlide();
+                });
+            });
+            
+            // Auto-play for video slider (optional)
+            let videoAutoPlayInterval = setInterval(() => {
+                currentVideoSlide = (currentVideoSlide + 1) % videoSlideCount;
+                updateVideoSlide();
+            }, 7000);
+            
+            // Pause auto-play when hovering over video slider
+            const videoSlider = document.querySelector('.video-slider');
+            videoSlider.addEventListener('mouseenter', () => {
+                clearInterval(videoAutoPlayInterval);
+            });
+            
+            videoSlider.addEventListener('mouseleave', () => {
+                videoAutoPlayInterval = setInterval(() => {
+                    currentVideoSlide = (currentVideoSlide + 1) % videoSlideCount;
+                    updateVideoSlide();
+                }, 7000);
+            });
+            
+            // Initialize video progress bar
+            videoProgress.style.width = `${((currentVideoSlide + 1) / videoSlideCount) * 100}%`;
+            
+            // Keyboard navigation for video slider
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    currentVideoSlide = (currentVideoSlide - 1 + videoSlideCount) % videoSlideCount;
+                    updateVideoSlide();
+                } else if (e.key === 'ArrowRight') {
+                    currentVideoSlide = (currentVideoSlide + 1) % videoSlideCount;
+                    updateVideoSlide();
+                }
             });
         });
     </script>
